@@ -1,0 +1,23 @@
+{
+  "name": "exoturier",
+  "version": "1.0.0",
+  "description": "ExoTourier web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatiasNicoletti/ExoTurier.git"
+  },
+  "keywords": [
+    "exotourier",
+    "travel"
+  ],
+  "author": "Leon Calandra Nicoletti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatiasNicoletti/ExoTurier/issues"
+  },
+  "homepage": "https://github.com/MatiasNicoletti/ExoTurier#readme"
+}
