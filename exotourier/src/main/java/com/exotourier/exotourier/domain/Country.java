@@ -15,12 +15,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
+@Table(name = "countries")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "users")
-public class User {
+public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,19 +32,4 @@ public class User {
     @NotNull
     private String name;
 
-    @Column(name = "surname")
-    @NotNull
-    private String surname;
-
-    @Column(name = "email")
-    @NotNull
-    private String email;
-
-    @Column(name = "password")
-    @NotNull
-    private String password;
-
-    @Column(name = "is_active")
-    @NotNull
-    private Boolean isActive;
 }

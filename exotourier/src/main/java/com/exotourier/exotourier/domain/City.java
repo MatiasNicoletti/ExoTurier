@@ -9,18 +9,21 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
+@Table(name = "cities")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "users")
-public class User {
+public class City {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,19 +35,10 @@ public class User {
     @NotNull
     private String name;
 
-    @Column(name = "surname")
     @NotNull
-    private String surname;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_country")
+    private Integer idCountry;
 
-    @Column(name = "email")
-    @NotNull
-    private String email;
 
-    @Column(name = "password")
-    @NotNull
-    private String password;
-
-    @Column(name = "is_active")
-    @NotNull
-    private Boolean isActive;
 }
