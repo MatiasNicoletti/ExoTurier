@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ExoTourierApp"
+    }
+  },
+  "defaultProject": "ExoTourierApp",
+  "cli": {
+    "analytics": false
+  }
 }
