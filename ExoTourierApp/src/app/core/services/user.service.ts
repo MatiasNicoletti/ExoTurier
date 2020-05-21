@@ -4,9 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
-
+  users: [] = [];
   constructor() { 
-    users: [] = [];
-    
+   
+  }
+
+  
+
+  public setUsers(users){
+    this.users = users;
   }
 }

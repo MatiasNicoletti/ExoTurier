@@ -38,7 +38,7 @@ public class City {
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_country")
-    private Integer idCountry;
+    private Country idCountry;
 
 
 }

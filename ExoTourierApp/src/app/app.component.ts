@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpService } from './core/http/http.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ExoTourierApp';
+
+  constructor(private httpService: HttpService){}
+
+
+  getUsers(){
+  this.httpService.fetchUsers().subscribe(res => {
+    console.log(res);
+  });
+  }
 }
