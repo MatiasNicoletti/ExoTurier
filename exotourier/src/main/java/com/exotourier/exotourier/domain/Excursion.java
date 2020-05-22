@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -46,5 +47,10 @@ public class Excursion {
 
     @OneToMany(mappedBy = "purchase")
     private List<Purchase> purchases;
+
+    // verificar
+    @JsonBackReference
+    @ManyToMany(mappedBy = "user")
+    private List<User> users = new ArrayList<>();
 
 }
