@@ -1,5 +1,6 @@
 package com.exotourier.exotourier.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,6 +31,7 @@ public class UserExcursion {
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_user")
+    @JsonBackReference
     private User user;
 
 
