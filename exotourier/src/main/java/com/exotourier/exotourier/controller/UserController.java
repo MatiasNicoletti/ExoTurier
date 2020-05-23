@@ -1,6 +1,7 @@
 package com.exotourier.exotourier.controller;
 
 import com.exotourier.exotourier.domain.User;
+import com.exotourier.exotourier.exception.UserNotFoundException;
 import com.exotourier.exotourier.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,7 +36,13 @@ public class UserController {
 
     @GetMapping("/{idUser}")
     public User getByID(@PathVariable Integer idUser){
-        return this.userService.getById(idUser).get();
+        User user = null;
+        try{
+            user = this.userService.getById(idUser);
+        } catch (UserNotFoundException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 
 }
