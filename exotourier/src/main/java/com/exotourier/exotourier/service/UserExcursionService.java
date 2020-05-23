@@ -3,10 +3,12 @@ package com.exotourier.exotourier.service;
 import com.exotourier.exotourier.dao.UserExcursionDao;
 import com.exotourier.exotourier.domain.UserExcursion;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class UserExcursionService {
 
     private UserExcursionDao userExcursionDao;

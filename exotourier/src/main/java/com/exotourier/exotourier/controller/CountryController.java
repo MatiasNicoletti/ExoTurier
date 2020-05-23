@@ -24,7 +24,7 @@ public class CountryController {
     }
 
     @PostMapping("/")
-    public Country create(Country country){
+    public Country create(@RequestBody Country country){
         return countryService.create(country);
     }
 

@@ -30,10 +30,10 @@ public class City {
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_country")
-    private Country idCountry;
+    private Country country;
 
-    @NotNull
+   /* @NotNull
     @OneToMany(mappedBy = "excursion")
     private List<Excursion> excursions;
-
+*/
 }

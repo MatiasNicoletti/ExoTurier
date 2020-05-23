@@ -27,7 +27,5 @@ public class Country {
     @NotNull
     private String name;
 
-    @OneToMany(mappedBy = "city")
-    private List<City> cities;
 
 }

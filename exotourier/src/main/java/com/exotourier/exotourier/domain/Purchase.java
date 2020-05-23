@@ -28,7 +28,7 @@ public class Purchase {
 
     @Column(name = "total_price")
     @NotNull
-    private float total_price;
+    private float totalPrice;
 
     @NotNull
     @JsonBackReference()

@@ -45,9 +45,9 @@ public class User {
     @NotNull
     private Boolean isActive;
 
-    @OneToMany(mappedBy = "user")
+    /*@OneToMany(mappedBy = "user")
     private List<Purchase> purchases;
-
+*/
     /*verificar
     @ManyToMany()
     @JoinTable(
@@ -60,6 +60,6 @@ public class User {
     //verificar
     @OneToMany(mappedBy = "user")
     @JsonBackReference
-    private List<Excursion> users;
+    private List<UserExcursion> userExcursionList;
 
 }

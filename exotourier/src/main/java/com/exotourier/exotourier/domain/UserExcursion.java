@@ -34,7 +34,6 @@ public class UserExcursion {
     @JsonBackReference
     private User user;
 
-
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_excursion")

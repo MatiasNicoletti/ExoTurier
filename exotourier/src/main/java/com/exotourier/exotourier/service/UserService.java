@@ -7,26 +7,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class UserExcursionDao {
-    private UserDao userDao;
+public class UserService {
+    UserDao userDao;
 
     @Autowired
-    public UserExcursionDao(UserDao userDao) {
+    public UserService(UserDao userDao) {
         this.userDao = userDao;
-    }
-
-    public List<User> getAll(){
-        return this.userDao.findAll();
     }
 
     public User create(User user){
         return this.userDao.save(user);
     }
 
+    public List<User> getAll(){
+        return this.userDao.findAll();
+    }
+
     public User getById(Integer id) throws UserNotFoundException {
-        return userDao.findById(id).orElseThrow(UserNotFoundException::new);
+        return this.userDao.findById(id).orElseThrow(UserNotFoundException::new);
     }
 }

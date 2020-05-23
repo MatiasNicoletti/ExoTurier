@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-public class UserExursionController {
+public class UserExcursionController {
 
     private UserExcursionService userExcursionService;
 
     @Autowired
-    public UserExursionController(UserExcursionService userExcursionService) {
+    public UserExcursionController(UserExcursionService userExcursionService) {
         this.userExcursionService = userExcursionService;
     }
 
