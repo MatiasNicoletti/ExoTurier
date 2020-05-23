@@ -1,6 +1,5 @@
 package com.exotourier.exotourier.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -45,11 +44,20 @@ public class User {
     @NotNull
     private Boolean isActive;
 
-    @OneToMany(mappedBy = "purchase")
+    @OneToMany(mappedBy = "user")
     private List<Purchase> purchases;
 
     //verificar
     @ManyToMany()
+    @JoinTable(
+            name = "users_x_excursions",
+            joinColumns = @JoinColumn(name = "id_user") ,
+            inverseJoinColumns = @JoinColumn(name = "id_excursion")
+    )
+    private List<Excursion> users = new ArrayList<>();
+
+    //verificar
+    @OneToMany(mappedBy = "")
     @JoinTable(
             name = "users_x_excursions",
             joinColumns = @JoinColumn(name = "id_user") ,

@@ -1,5 +1,5 @@
 package com.exotourier.exotourier.domain;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,38 +7,35 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "purchases")
+@Table(name = "cities")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Purchase {
+public class UserExcursion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
     @Column(name = "id",unique=false, nullable = false)
     private Integer id;
 
-    @Column(name = "date")
+    @Column(name = "name")
     @NotNull
-    private LocalDateTime date;
+    private float rating;
 
-    @Column(name = "total_price")
-    @NotNull
-    private float total_price;
 
     @NotNull
-    @JsonBackReference()
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_excursion", nullable = false)
+    @JoinColumn(name = "id_user")
+    private User user;
+
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_excursion")
     private Excursion excursion;
 
-    @NotNull
-    @JsonBackReference()
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_user", nullable = false)
-    private User user;
 }

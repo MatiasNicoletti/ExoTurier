@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserExcursionDao {
     private UserDao userDao;
 
     @Autowired
-    public UserService(UserDao userDao) {
+    public UserExcursionDao(UserDao userDao) {
         this.userDao = userDao;
     }
 

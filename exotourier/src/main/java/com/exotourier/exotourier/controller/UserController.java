@@ -2,9 +2,8 @@ package com.exotourier.exotourier.controller;
 
 import com.exotourier.exotourier.domain.User;
 import com.exotourier.exotourier.exception.UserNotFoundException;
-import com.exotourier.exotourier.service.UserService;
+import com.exotourier.exotourier.service.UserExcursionDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,10 +16,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-    private UserService userService;
+    private UserExcursionDao userService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserExcursionDao userService) {
         this.userService = userService;
     }
 
