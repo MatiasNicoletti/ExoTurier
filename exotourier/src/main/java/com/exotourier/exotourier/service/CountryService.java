@@ -2,6 +2,8 @@ package com.exotourier.exotourier.service;
 
 import com.exotourier.exotourier.dao.CountryDao;
 import com.exotourier.exotourier.domain.Country;
+import com.exotourier.exotourier.exception.CountryAlreadyExistException;
+import org.graalvm.compiler.nodes.calc.IntegerDivRemNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +22,12 @@ public class CountryService {
     public List<Country> getAll(){
         return this.countryDao.findAll();
     }
-    public Country create(Country country){
+
+    public Country create(Country country) throws CountryAlreadyExistException {
+        Optional<Country> c = countryDao.findByName(country.getName());
+        if (c.isPresent()) {
+            throw new CountryAlreadyExistException();
+        }
         return this.countryDao.save(country);
     }
 

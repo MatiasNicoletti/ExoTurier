@@ -1,6 +1,7 @@
 package com.exotourier.exotourier.controller;
 
 import com.exotourier.exotourier.domain.User;
+import com.exotourier.exotourier.exception.UserEmailAlreadyExistException;
 import com.exotourier.exotourier.exception.UserNotFoundException;
 import com.exotourier.exotourier.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class UserController {
     }
 
     @PostMapping("/")
-    public User create(@RequestBody User user){
+    public User create(@RequestBody User user) throws UserEmailAlreadyExistException {
         return this.userService.create(user);
     }
 

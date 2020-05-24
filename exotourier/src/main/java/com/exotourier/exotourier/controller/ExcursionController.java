@@ -26,7 +26,7 @@ public class ExcursionController {
     }
 
     @PostMapping("/")
-    public Excursion create(Excursion excursion) throws ExcursionAlreadyExistException {
+    public Excursion create(@RequestBody final Excursion excursion) throws ExcursionAlreadyExistException {
         return excursionService.add(excursion);
     }
 

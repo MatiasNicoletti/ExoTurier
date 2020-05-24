@@ -1,6 +1,7 @@
 package com.exotourier.exotourier.controller;
 
 import com.exotourier.exotourier.domain.Country;
+import com.exotourier.exotourier.exception.CountryAlreadyExistException;
 import com.exotourier.exotourier.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class CountryController {
     }
 
     @PostMapping("/")
-    public Country create(@RequestBody Country country){
+    public Country create(@RequestBody Country country) throws CountryAlreadyExistException {
         return countryService.create(country);
     }
 
