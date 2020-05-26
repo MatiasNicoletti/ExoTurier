@@ -1,4 +1,5 @@
 package com.exotourier.exotourier.domain;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
@@ -7,7 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -48,18 +48,12 @@ public class Excursion {
     @JoinColumn(name = "id_city", nullable = false)
     private City city;
 
-
-    /* verificar
-    @JsonBackReference
-    @ManyToMany(mappedBy = "user")
-    private List<User> users;
-*/
     @OneToMany(mappedBy = "excursion")
-    @JsonBackReference
-    private List<UserExcursion> userExcursionList;
-
-    @OneToMany(mappedBy = "excursion")
-    @JsonBackReference
     private List<Purchase> purchaseList;
+
+    /*
+    @OneToMany(mappedBy = "excursion")
+    private List<UserExcursion> userExcursionList;
+     */
 
 }

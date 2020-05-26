@@ -32,7 +32,9 @@ public class ExcursionController {
 
     @GetMapping("/{idExcursion}")
     public Excursion getById(@PathVariable Integer idExcursion){
+        /*
         System.out.println(excursionService.getById(idExcursion).get());
+         */
         return excursionService.getById(idExcursion).get();
     }
 }

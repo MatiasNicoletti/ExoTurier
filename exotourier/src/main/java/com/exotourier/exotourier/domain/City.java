@@ -31,9 +31,9 @@ public class City {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_country")
     private Country country;
-/*
+
     @NotNull
     @OneToMany(mappedBy = "city")
     private List<Excursion> excursions;
-*/
+
 }

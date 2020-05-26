@@ -3,12 +3,7 @@ package com.exotourier.exotourier.controller;
 import com.exotourier.exotourier.domain.UserExcursion;
 import com.exotourier.exotourier.service.UserExcursionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -40,7 +35,6 @@ public class UserExcursionController {
         userExcursion = this.userExcursionService.getById(idUserExcursion).get();
         return userExcursion;
     }
-
 
     //todo agregar optional y excepciones
 }

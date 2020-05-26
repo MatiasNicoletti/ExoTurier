@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-
 @Repository
 public interface ExcursionDao extends JpaRepository<Excursion, Integer> {
     Optional<Excursion> findByName(String name);

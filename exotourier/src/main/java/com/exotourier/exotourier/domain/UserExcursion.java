@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "cities")
+@Table(name = "users_x_excursions")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,14 +19,12 @@ public class UserExcursion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id",unique=false, nullable = false)
+    //@Basic(optional = false)
+    @Column(name = "id", unique=false, nullable = false)
     private Integer id;
 
-    @Column(name = "rating")
-    @NotNull
-    private Integer rating;
-
+    // Error con estas entidades
+    /*
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_user")
@@ -36,6 +34,12 @@ public class UserExcursion {
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_excursion")
+    @JsonBackReference
     private Excursion excursion;
+     */
+
+    @Column(name = "rating")
+    @NotNull
+    private Float rating;
 
 }
