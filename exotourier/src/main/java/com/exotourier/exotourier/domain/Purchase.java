@@ -28,16 +28,16 @@ public class Purchase {
 
     @Column(name = "total_price")
     @NotNull
-    private float totalPrice;
+    private Float totalPrice;
 
     @NotNull
-    @JsonBackReference()
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_excursion", nullable = false)
     private Excursion excursion;
 
     @NotNull
-    @JsonBackReference()
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_user", nullable = false)
     private User user;

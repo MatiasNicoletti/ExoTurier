@@ -20,4 +20,10 @@ export class AppComponent {
   });
   
   }
+
+  addUser(){
+    this.httpService.addUser().subscribe(res => {
+      console.log(res);
+    });
+  }
 }

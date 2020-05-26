@@ -1,5 +1,8 @@
 package com.exotourier.exotourier.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,11 +24,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id",unique=false, nullable = false)
+    @JsonIgnore
     private Integer id;
 
     @Column(name = "firstname")
     @NotNull
-    private String name;
+    private String firstname;
 
     @Column(name = "surname")
     @NotNull
@@ -43,12 +47,14 @@ public class User {
     @NotNull
     private Boolean isActive;
 
-    @OneToMany(mappedBy = "user")
+   @OneToMany(mappedBy = "user")
+   @JsonBackReference
     private List<Purchase> purchases;
 
     /*
     @OneToMany(mappedBy = "user")
-    private List<UserExcursion> userExcursionList;
-     */
+    @JsonBackReference
+    private List<UserExcursion> userExcursionList;*/
+
 
 }

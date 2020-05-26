@@ -6,7 +6,9 @@ import com.exotourier.exotourier.exception.UserNotFoundException;
 import com.exotourier.exotourier.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -32,7 +35,7 @@ public class UserController {
         return (users.size() > 0) ? ResponseEntity.ok(users) : ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    @PostMapping("/")
+    @PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
     public User create(@RequestBody User user) throws UserEmailAlreadyExistException {
         return this.userService.create(user);
     }
