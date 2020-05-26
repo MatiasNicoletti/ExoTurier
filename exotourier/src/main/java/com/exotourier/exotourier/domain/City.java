@@ -23,7 +23,7 @@ public class City {
     @Column(name = "id",unique=false, nullable = false)
     private Integer id;
 
-    @Column(name = "name")
+    @Column(name = "city_name")
     @NotNull
     private String name;
 
@@ -31,9 +31,9 @@ public class City {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_country")
     private Country country;
-
-   /* @NotNull
-    @OneToMany(mappedBy = "excursion")
+/*
+    @NotNull
+    @OneToMany(mappedBy = "city")
     private List<Excursion> excursions;
 */
 }

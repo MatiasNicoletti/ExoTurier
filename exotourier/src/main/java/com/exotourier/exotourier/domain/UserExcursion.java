@@ -23,10 +23,9 @@ public class UserExcursion {
     @Column(name = "id",unique=false, nullable = false)
     private Integer id;
 
-    @Column(name = "name")
+    @Column(name = "rating")
     @NotNull
-    private float rating;
-
+    private Integer rating;
 
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)

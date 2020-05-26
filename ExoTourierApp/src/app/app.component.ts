@@ -15,6 +15,9 @@ export class AppComponent {
   getUsers(){
   this.httpService.fetchUsers().subscribe(res => {
     console.log(res);
+  }, err => {
+    console.log('Lista de usuarios vacia');
   });
+  
   }
 }

@@ -7,9 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("/usersExcursions")
 public class UserExcursionController {
 
     private UserExcursionService userExcursionService;
@@ -21,6 +25,7 @@ public class UserExcursionController {
 
     @GetMapping("/")
     public List<UserExcursion> getAll(){
+        System.out.println(this.userExcursionService.getAll());
         return this.userExcursionService.getAll();
     }
 
@@ -29,10 +34,10 @@ public class UserExcursionController {
         return this.userExcursionService.create(userExcursion);
     }
 
-    @GetMapping("/{idUser}")
-    public UserExcursion getByID(@PathVariable Integer idUser){
+    @GetMapping("/{idUserExcursion}")
+    public UserExcursion getByID(@PathVariable Integer idUserExcursion){
         UserExcursion userExcursion = null;
-        userExcursion = this.userExcursionService.getById(idUser).get();
+        userExcursion = this.userExcursionService.getById(idUserExcursion).get();
         return userExcursion;
     }
 

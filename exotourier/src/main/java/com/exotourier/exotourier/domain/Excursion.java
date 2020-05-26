@@ -23,26 +23,31 @@ public class Excursion {
     private Integer id;
 
     @NotNull
+    @Column(name = "excursion_name")
     private String name;
 
     @NotNull
+    @Column(name = "description")
     private String description;
 
     @NotNull
+    @Column(name = "price")
     private Float price;
 
     @NotNull
+    @Column(name = "place")
     private String place;
 
     @NotNull
+    @Column(name = "is_active")
     private boolean isActive;
 
-   /* @NotNull
+    @NotNull
     @JsonBackReference()
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_city", nullable = false)
     private City city;
-*/
+
 
     /* verificar
     @JsonBackReference
@@ -52,5 +57,9 @@ public class Excursion {
     @OneToMany(mappedBy = "excursion")
     @JsonBackReference
     private List<UserExcursion> userExcursionList;
+
+    @OneToMany(mappedBy = "excursion")
+    @JsonBackReference
+    private List<Purchase> purchaseList;
 
 }

@@ -23,7 +23,7 @@ public class Country {
     @Column(name = "id",unique=false, nullable = false)
     private Integer id;
 
-    @Column(name = "name")
+    @Column(name = "country_name")
     @NotNull
     private String name;
 

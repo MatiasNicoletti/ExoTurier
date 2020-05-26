@@ -22,7 +22,7 @@ public class Purchase {
     @Column(name = "id",unique=false, nullable = false)
     private Integer id;
 
-    @Column(name = "date")
+    @Column(name = "purchase_date")
     @NotNull
     private LocalDateTime date;
 

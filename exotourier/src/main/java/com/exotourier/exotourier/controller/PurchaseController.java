@@ -3,6 +3,8 @@ package com.exotourier.exotourier.controller;
 import com.exotourier.exotourier.domain.Purchase;
 import com.exotourier.exotourier.service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,8 +20,9 @@ public class PurchaseController {
     }
 
     @GetMapping("/")
-    public List<Purchase> getAll(){
-        return purchaseService.getAll();
+    public ResponseEntity<List<Purchase>> getAll(){
+        List<Purchase> purchases = purchaseService.getAll();
+        return (purchases.size() > 0) ? ResponseEntity.ok(purchases) : ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
     @PostMapping("/")
