@@ -43,7 +43,7 @@ public class Excursion {
     private boolean isActive;
 
     @NotNull
-    @JsonBackReference()
+    @JsonBackReference(value = "excursionCity")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_city", nullable = false)
     private City city;
@@ -51,9 +51,7 @@ public class Excursion {
     @OneToMany(mappedBy = "excursion")
     private List<Purchase> purchaseList;
 
-    /*
     @OneToMany(mappedBy = "excursion")
     private List<UserExcursion> userExcursionList;
-     */
 
 }

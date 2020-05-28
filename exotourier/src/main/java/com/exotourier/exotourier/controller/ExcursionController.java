@@ -6,6 +6,7 @@ import com.exotourier.exotourier.service.ExcursionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -26,7 +27,7 @@ public class ExcursionController {
     }
 
     @PostMapping("/")
-    public Excursion create(@RequestBody final Excursion excursion) throws ExcursionAlreadyExistException {
+    public Excursion create(@RequestBody @Valid final Excursion excursion) throws ExcursionAlreadyExistException {
         return excursionService.add(excursion);
     }
 

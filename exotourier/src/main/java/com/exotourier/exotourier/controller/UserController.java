@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @CrossOrigin
@@ -35,8 +36,8 @@ public class UserController {
         return (users.size() > 0) ? ResponseEntity.ok(users) : ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    @PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public User create(@RequestBody User user) throws UserEmailAlreadyExistException {
+    @PostMapping(value = "/")
+    public User create(@RequestBody @Valid User user) throws UserEmailAlreadyExistException {
         return this.userService.create(user);
     }
 

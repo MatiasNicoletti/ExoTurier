@@ -1,4 +1,5 @@
 package com.exotourier.exotourier.domain;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
@@ -19,7 +20,7 @@ public class Purchase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id",unique=false, nullable = false)
+    @Column(name = "id", unique=false, nullable = false)
     private Integer id;
 
     @Column(name = "purchase_date")
@@ -31,13 +32,13 @@ public class Purchase {
     private Float totalPrice;
 
     @NotNull
-    @JsonBackReference
+    @JsonBackReference(value = "purchaseExcursion")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_excursion", nullable = false)
     private Excursion excursion;
 
     @NotNull
-    @JsonBackReference
+    @JsonBackReference(value = "purchaseUser")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_user", nullable = false)
     private User user;

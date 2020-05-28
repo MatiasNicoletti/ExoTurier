@@ -19,24 +19,20 @@ public class UserExcursion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Basic(optional = false)
     @Column(name = "id", unique=false, nullable = false)
     private Integer id;
 
-    // Error con estas entidades
-    /*
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_user")
-    @JsonBackReference
+    @JsonBackReference(value = "userExcursionUser")
     private User user;
 
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_excursion")
-    @JsonBackReference
+    @JsonBackReference(value = "userExcursionExcursion")
     private Excursion excursion;
-     */
 
     @Column(name = "rating")
     @NotNull

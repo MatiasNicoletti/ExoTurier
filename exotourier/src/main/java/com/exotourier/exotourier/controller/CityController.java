@@ -6,6 +6,7 @@ import com.exotourier.exotourier.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -24,7 +25,7 @@ public class CityController {
     }
 
     @PostMapping("/")
-    public City create(@RequestBody City city) throws CityAlreadyExistException {
+    public City create(@RequestBody @Valid City city) throws CityAlreadyExistException {
         return cityService.create(city);
     }
 
