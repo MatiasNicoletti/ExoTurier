@@ -2,18 +2,13 @@ package com.exotourier.exotourier.controller;
 
 import com.exotourier.exotourier.domain.User;
 import com.exotourier.exotourier.exception.UserEmailAlreadyExistException;
+import com.exotourier.exotourier.exception.UserNotExistException;
 import com.exotourier.exotourier.exception.UserNotFoundException;
 import com.exotourier.exotourier.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
@@ -48,6 +43,13 @@ public class UserController {
     public ResponseEntity<User> getByID(@PathVariable Integer idUser) throws UserNotFoundException {
         User user = userService.getById(idUser);
         return ResponseEntity.ok(user);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity updateById(@PathVariable final Integer id,
+                                     @RequestBody @Valid final User updatedUser) throws UserNotExistException {
+        User user = userService.updateById(id, updatedUser);
+        return (user != null) ? ResponseEntity.ok().build() : ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
     private URI getLocation(User user) {

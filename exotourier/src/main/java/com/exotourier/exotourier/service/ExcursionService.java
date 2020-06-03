@@ -39,4 +39,13 @@ public class ExcursionService {
     }
 
 
+    public Excursion updateById(Integer id, Excursion updatedExcursion) throws ExcursionNotExistException {
+        Optional<Excursion> excursion = excursionDao.findById(id);
+        if (!excursion.isPresent()) {
+            throw new ExcursionNotExistException();
+        }
+        updatedExcursion.setId(id);
+        return excursionDao.save(excursion.get());
+    }
+
 }

@@ -5,6 +5,7 @@ import com.exotourier.exotourier.exception.ExcursionAlreadyExistException;
 import com.exotourier.exotourier.exception.ExcursionNotExistException;
 import com.exotourier.exotourier.service.ExcursionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -42,8 +43,10 @@ public class ExcursionController {
     }
 
     @PutMapping("/{id}")
-    public void updateById(@PathVariable final Integer id) throws ExcursionNotExistException {
-
+    public ResponseEntity updateById(@PathVariable final Integer id,
+                                     @RequestBody @Valid final Excursion updatedExcursion) throws ExcursionNotExistException {
+        Excursion excursion = excursionService.updateById(id, updatedExcursion);
+        return (excursion != null) ? ResponseEntity.ok().build() : ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
     private URI getLocation(Excursion excursion) {
