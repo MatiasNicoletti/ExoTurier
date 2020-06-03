@@ -3,6 +3,7 @@ package com.exotourier.exotourier.service;
 import com.exotourier.exotourier.dao.CityDao;
 import com.exotourier.exotourier.domain.City;
 import com.exotourier.exotourier.exception.CityAlreadyExistException;
+import com.exotourier.exotourier.exception.CityNotExistException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,8 +32,8 @@ public class CityService {
         return this.cityDao.save(city);
     }
 
-    public Optional<City> getById(Integer id){
-        return cityDao.findById(id);
+    public City getById(Integer id) throws CityNotExistException {
+        return cityDao.findById(id).orElseThrow(CityNotExistException::new);
     }
 
 

@@ -1,19 +1,23 @@
 package com.exotourier.exotourier.controller;
 
 import com.exotourier.exotourier.domain.Purchase;
+import com.exotourier.exotourier.exception.PurchaseNotExistException;
 import com.exotourier.exotourier.service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.net.URI;
 import java.util.List;
 
 @RestController
 @RequestMapping("/purchases")
 public class PurchaseController {
-    private PurchaseService purchaseService;
+
+    private final PurchaseService purchaseService;
 
     @Autowired
     public PurchaseController(PurchaseService purchaseService) {
@@ -27,12 +31,23 @@ public class PurchaseController {
     }
 
     @PostMapping("/")
-    public Purchase create(@RequestBody @Valid Purchase purchase){
-        return purchaseService.create(purchase);
+    public ResponseEntity create(@RequestBody @Valid Purchase purchase){
+        Purchase newPurchase = purchaseService.create(purchase);
+        return ResponseEntity.created(getLocation(newPurchase)).build();
     }
 
     @GetMapping("/{idCountry}")
-    public Purchase getById(@PathVariable Integer idPurchase){
-        return purchaseService.getById(idPurchase).get();
+    public ResponseEntity<Purchase> getById(@PathVariable Integer idPurchase) throws PurchaseNotExistException {
+        Purchase purchase = purchaseService.getById(idPurchase);
+        return ResponseEntity.ok(purchase);
     }
+
+    private URI getLocation(Purchase purchase) {
+        return ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(purchase.getId())
+                .toUri();
+    }
+
 }

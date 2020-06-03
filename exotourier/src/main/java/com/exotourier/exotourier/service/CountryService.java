@@ -3,6 +3,7 @@ package com.exotourier.exotourier.service;
 import com.exotourier.exotourier.dao.CountryDao;
 import com.exotourier.exotourier.domain.Country;
 import com.exotourier.exotourier.exception.CountryAlreadyExistException;
+import com.exotourier.exotourier.exception.CountryNotExistException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,8 @@ import java.util.Optional;
 
 @Service
 public class CountryService {
-    private CountryDao countryDao;
+
+    private final CountryDao countryDao;
 
     @Autowired
     public CountryService(CountryDao countryDao) {
@@ -30,8 +32,8 @@ public class CountryService {
         return this.countryDao.save(country);
     }
 
-    public Optional<Country> getById(Integer id){
-        return countryDao.findById(id);
+    public Country getById(Integer id) throws CountryNotExistException {
+        return countryDao.findById(id).orElseThrow(CountryNotExistException::new);
     }
 
 }

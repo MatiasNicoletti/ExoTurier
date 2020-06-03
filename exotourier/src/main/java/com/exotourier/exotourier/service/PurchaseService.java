@@ -2,29 +2,31 @@ package com.exotourier.exotourier.service;
 
 import com.exotourier.exotourier.dao.PurchaseDao;
 import com.exotourier.exotourier.domain.Purchase;
+import com.exotourier.exotourier.exception.PurchaseNotExistException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PurchaseService {
-    private PurchaseDao purchaseDao;
+
+    private final PurchaseDao purchaseDao;
 
     @Autowired
     public PurchaseService(PurchaseDao purchaseDao) {
         this.purchaseDao = purchaseDao;
     }
 
-    public List<Purchase> getAll(){
+    public List<Purchase> getAll() {
         return this.purchaseDao.findAll();
     }
-    public Purchase create(Purchase purchase){
+    public Purchase create(Purchase purchase) {
         return this.purchaseDao.save(purchase);
     }
 
-    public Optional<Purchase> getById(Integer id){
-        return purchaseDao.findById(id);
+    public Purchase getById(Integer id) throws PurchaseNotExistException {
+        return purchaseDao.findById(id).orElseThrow(PurchaseNotExistException::new);
     }
+
 }

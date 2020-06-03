@@ -6,7 +6,6 @@ import com.exotourier.exotourier.exception.UserNotFoundException;
 import com.exotourier.exotourier.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,15 +14,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.net.URI;
 import java.util.List;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/users")
 public class UserController {
-    private UserService userService;
+
+    private final UserService userService;
 
     @Autowired
     public UserController(UserService userService) {
@@ -37,19 +39,23 @@ public class UserController {
     }
 
     @PostMapping(value = "/")
-    public User create(@RequestBody @Valid User user) throws UserEmailAlreadyExistException {
-        return this.userService.create(user);
+    public ResponseEntity create(@RequestBody @Valid User user) throws UserEmailAlreadyExistException {
+        User newUser = userService.create(user);
+        return ResponseEntity.created(getLocation(newUser)).build();
     }
 
     @GetMapping("/{idUser}")
-    public ResponseEntity<User> getByID(@PathVariable Integer idUser){
-        User user = null;
-        try{
-            user = this.userService.getById(idUser);
-        } catch (UserNotFoundException e) {
-            e.printStackTrace();
-        }
-        return user == null ? null :ResponseEntity.ok(user);
+    public ResponseEntity<User> getByID(@PathVariable Integer idUser) throws UserNotFoundException {
+        User user = userService.getById(idUser);
+        return ResponseEntity.ok(user);
+    }
+
+    private URI getLocation(User user) {
+        return ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(user.getId())
+                .toUri();
     }
 
 }

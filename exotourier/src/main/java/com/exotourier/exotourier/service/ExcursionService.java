@@ -2,6 +2,7 @@ package com.exotourier.exotourier.service;
 
 import com.exotourier.exotourier.dao.ExcursionDao;
 import com.exotourier.exotourier.domain.Excursion;
+import com.exotourier.exotourier.exception.ExcursionNotExistException;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.exotourier.exotourier.exception.ExcursionAlreadyExistException;
 import org.springframework.stereotype.Service;
@@ -33,8 +34,8 @@ public class ExcursionService {
         return excursionDao.findAll();
     }
 
-    public Optional<Excursion> getById(Integer id) {
-        return excursionDao.findById(id);
+    public Excursion getById(Integer id) throws ExcursionNotExistException {
+        return excursionDao.findById(id).orElseThrow(ExcursionNotExistException::new);
     }
 
 

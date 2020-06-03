@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/usersExcursions")
 public class UserExcursionController {
 
-    private UserExcursionService userExcursionService;
+    private final UserExcursionService userExcursionService;
 
     @Autowired
     public UserExcursionController(UserExcursionService userExcursionService) {
