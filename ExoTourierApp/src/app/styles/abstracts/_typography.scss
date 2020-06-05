@@ -1,1 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,300;1,400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400&display=swap');
+@import './colors';
+
+$main-font : "Raleway", sans-serif;
+
+$font-size-brand: 2rem;
+$font-size-links: 1rem;   
+
+$font-size-sm-min : 1rem;
+$font-size-sm-normal : 1.5rem;
+$font-size-sm-max : 2rem;
+$font-size-md-min : 2.5rem;
+$font-size-md : 3rem;
+
+$font-size-btn-action : 1.5rem;
+
+.main-title{
+    font-weight: 500;
+    font-size: $font-size-md-min;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        color: $color-earthy-red;
+}

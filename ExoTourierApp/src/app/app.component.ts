@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import { HttpService } from './core/http/http.service';
 
 @Component({
@@ -6,10 +6,13 @@ import { HttpService } from './core/http/http.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit{
   title = 'ExoTourierApp';
 
-  constructor(private httpService: HttpService){}
+  constructor(private httpService: HttpService, private elementRef: ElementRef){}
+  ngAfterViewInit(): void {
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#EFEFEF';
+  }
 
 
   getUsers(){

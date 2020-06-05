@@ -1,0 +1,24 @@
+@import '../abstracts/colors';
+@import '../abstracts/typography';
+@import '../abstracts/mixins';
+@import '../abstracts/utils';
+
+.btn{
+    border: none;
+    color: #ffffff;
+    outline: none;
+    border-radius: 28px;
+}
+
+.btn-action{
+    width: 18rem;
+    height: 3.5rem;
+    background-color: $color-earthy-red;
+    font-size: $font-size-btn-action;
+    font-weight: 300;
+    font-family: $main-font;
+    text-transform: uppercase;
+    @include box-shadow;
+    margin: 0 $margin-md;
+}
+

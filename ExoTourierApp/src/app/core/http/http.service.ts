@@ -17,7 +17,6 @@ export class HttpService {
     return this.http.get<User[]>('http://localhost:8080/users/').pipe(
       map((users: User[]) => {
         const change: User[] = users;
-        
         change.map((u: User) => {
             u.firstname = u.firstname.toUpperCase();
             return u;
