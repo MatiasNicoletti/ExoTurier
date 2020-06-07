@@ -4,7 +4,7 @@ import com.exotourier.exotourier.domain.Excursion;
 import com.exotourier.exotourier.domain.Purchase;
 import com.exotourier.exotourier.exception.ExcursionNotExistException;
 import com.exotourier.exotourier.exception.PurchaseNotExistException;
-import com.exotourier.exotourier.projection.mostPurchased;
+import com.exotourier.exotourier.projection.MostPurchased;
 import com.exotourier.exotourier.service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -49,8 +49,8 @@ public class PurchaseController {
 
     @GetMapping("/mostPurchased")
     public ResponseEntity<ResponseEntity<Excursion>> getMostPurchased() throws ExcursionNotExistException {
-        List<mostPurchased> mostPurchased= purchaseService.getMostPurchased();
-        Integer id = mostPurchased.get(0).getId_excursion();
+        MostPurchased mostPurchased= purchaseService.getMostPurchased();
+        Integer id = mostPurchased.getId_excursion();
         ResponseEntity<Excursion> exc = excursionController.getById(id);
         return ResponseEntity.ok(exc);
     }

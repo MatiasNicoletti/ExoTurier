@@ -1,12 +1,10 @@
 package com.exotourier.exotourier.dao;
 
 import com.exotourier.exotourier.domain.Purchase;
-import com.exotourier.exotourier.projection.mostPurchased;
+import com.exotourier.exotourier.projection.MostPurchased;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface PurchaseDao extends JpaRepository<Purchase, Integer> {
@@ -18,5 +16,5 @@ public interface PurchaseDao extends JpaRepository<Purchase, Integer> {
                     "LIMIT 1",
             nativeQuery = true
     )
-    List<mostPurchased> findMostPurchased();
+    MostPurchased findMostPurchased();
 }
