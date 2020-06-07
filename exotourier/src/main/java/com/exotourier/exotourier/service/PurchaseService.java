@@ -3,6 +3,7 @@ package com.exotourier.exotourier.service;
 import com.exotourier.exotourier.dao.PurchaseDao;
 import com.exotourier.exotourier.domain.Purchase;
 import com.exotourier.exotourier.exception.PurchaseNotExistException;
+import com.exotourier.exotourier.projection.mostPurchased;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,10 @@ public class PurchaseService {
 
     public Purchase getById(Integer id) throws PurchaseNotExistException {
         return purchaseDao.findById(id).orElseThrow(PurchaseNotExistException::new);
+    }
+
+    public List<mostPurchased> getMostPurchased(){
+        return purchaseDao.findMostPurchased();
     }
 
 }

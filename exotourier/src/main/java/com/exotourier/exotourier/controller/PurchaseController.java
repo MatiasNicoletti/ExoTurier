@@ -1,7 +1,10 @@
 package com.exotourier.exotourier.controller;
 
+import com.exotourier.exotourier.domain.Excursion;
 import com.exotourier.exotourier.domain.Purchase;
+import com.exotourier.exotourier.exception.ExcursionNotExistException;
 import com.exotourier.exotourier.exception.PurchaseNotExistException;
+import com.exotourier.exotourier.projection.mostPurchased;
 import com.exotourier.exotourier.service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,10 +21,12 @@ import java.util.List;
 public class PurchaseController {
 
     private final PurchaseService purchaseService;
+    private final ExcursionController excursionController;
 
     @Autowired
-    public PurchaseController(PurchaseService purchaseService) {
+    public PurchaseController(PurchaseService purchaseService, ExcursionController excursionController) {
         this.purchaseService = purchaseService;
+        this.excursionController = excursionController;
     }
 
     @GetMapping("/")
@@ -36,10 +41,18 @@ public class PurchaseController {
         return ResponseEntity.created(getLocation(newPurchase)).build();
     }
 
-    @GetMapping("/{idCountry}")
+    @GetMapping("/{idPurchase}")
     public ResponseEntity<Purchase> getById(@PathVariable Integer idPurchase) throws PurchaseNotExistException {
         Purchase purchase = purchaseService.getById(idPurchase);
         return ResponseEntity.ok(purchase);
+    }
+
+    @GetMapping("/mostPurchased")
+    public ResponseEntity<ResponseEntity<Excursion>> getMostPurchased() throws ExcursionNotExistException {
+        List<mostPurchased> mostPurchased= purchaseService.getMostPurchased();
+        Integer id = mostPurchased.get(0).getId_excursion();
+        ResponseEntity<Excursion> exc = excursionController.getById(id);
+        return ResponseEntity.ok(exc);
     }
 
     private URI getLocation(Purchase purchase) {
@@ -49,5 +62,4 @@ public class PurchaseController {
                 .buildAndExpand(purchase.getId())
                 .toUri();
     }
-
 }
