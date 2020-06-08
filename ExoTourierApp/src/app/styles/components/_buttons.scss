@@ -7,14 +7,13 @@
     border: none;
     color: #ffffff;
     outline: none;
-    border-radius: 28px;
+    border-radius: $border-radius-main;
 }
 
 .btn-action{
-    width: 18rem;
-    height: 3.5rem;
+    
     background-color: $color-earthy-red;
-    font-size: $font-size-btn-action;
+    font-size: $font-size-btn-action-large;
     font-weight: 300;
     font-family: $main-font;
     text-transform: uppercase;
@@ -22,3 +21,13 @@
     margin: 0 $margin-md;
 }
 
+.btn-medium{
+    width: 12rem;
+    height: 2.5rem;
+    font-size: $font-size-btn-action-medium;
+}
+
+.btn-large{
+    width: 15rem;
+    height: 3rem;
+}

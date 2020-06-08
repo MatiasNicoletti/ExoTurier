@@ -1,0 +1,29 @@
+@import '../abstracts/typography';
+@import '../abstracts/colors';
+@import '../abstracts/utils';
+
+.outstanding-container{
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    top: -1vh;
+    left: -0.5vw;
+    &__img{
+        width: 100%;
+        
+    }
+}
+.outstanding-content{
+    position: absolute;
+    width: 50%;
+    height: 20%;
+    top: 66%;
+    background-color: #fff;
+    border-radius: $border-radius-main;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    &__btn{
+        
+    }
+}

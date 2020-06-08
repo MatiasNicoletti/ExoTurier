@@ -13,6 +13,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { ExcursionsGridComponent } from './layout/excursions-grid/excursions-grid.component';
 import { LandingComponent } from './layout/landing/landing.component';
 import { RouterModule } from '@angular/router';
+import { OutstandingExcursionComponent } from './layout/outstanding-excursion/outstanding-excursion.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { RouterModule } from '@angular/router';
     NavComponent,
     HeaderComponent,
     ExcursionsGridComponent,
-    LandingComponent
+    LandingComponent,
+    OutstandingExcursionComponent
   ],
   imports: [
     BrowserModule,
