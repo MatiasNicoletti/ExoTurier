@@ -14,6 +14,8 @@ import { ExcursionsGridComponent } from './layout/excursions-grid/excursions-gri
 import { LandingComponent } from './layout/landing/landing.component';
 import { RouterModule } from '@angular/router';
 import { OutstandingExcursionComponent } from './layout/outstanding-excursion/outstanding-excursion.component';
+import { FilterComponent } from './layout/filter/filter.component';
+import { GridComponent } from './layout/grid/grid.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { OutstandingExcursionComponent } from './layout/outstanding-excursion/ou
     HeaderComponent,
     ExcursionsGridComponent,
     LandingComponent,
-    OutstandingExcursionComponent
+    OutstandingExcursionComponent,
+    FilterComponent,
+    GridComponent
   ],
   imports: [
     BrowserModule,

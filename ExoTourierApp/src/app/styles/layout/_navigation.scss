@@ -6,12 +6,13 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 40vw;
-  height: 8vh;
+  width: 40rem;
+  height: 3rem;
   display: flex;
   float: right;
   z-index: 10;
   margin-right:$margin-main-sides;
+  margin-top: $margin-md;
   &__nav-brand {
     width: 25%;
     display: flex;

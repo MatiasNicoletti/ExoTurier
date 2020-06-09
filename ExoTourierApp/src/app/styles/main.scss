@@ -6,3 +6,18 @@
 @import './components/buttons';
 @import './layout/header';
 @import './layout/navigation';
+
+
+body::-webkit-scrollbar {
+    width: 0.7em;
+  }
+   
+//   body::-webkit-scrollbar-track {
+//     box-shadow: inset 0 0 6px rgba(172, 16, 16, 0.3);
+//   }
+   
+  body::-webkit-scrollbar-thumb {
+    background-color: $color-earthy-red-opac-2;
+    border-radius: 5px;
+    // outline: 1px solid slategrey;
+  }
