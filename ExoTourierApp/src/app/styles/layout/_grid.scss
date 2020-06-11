@@ -1,0 +1,59 @@
+@import '../abstracts/typography';
+@import '../abstracts/colors';
+@import '../abstracts/utils';
+@import '../abstracts/mixins';
+.grid-container{
+    position: relative;
+    width: $app-width;
+    height: auto;
+    top: -1vh;
+    left: -0.5vw;
+    font-family: $main-font;
+    display: grid;
+    grid-template-rows: repeat(3, max-content);
+    grid-row-gap: $grid-row-gap;
+}
+// minmax(15rem, 1fr)
+.grid-row{
+    position: relative;
+    width: auto;
+    height: 66vh;
+    padding: 0.3rem 0.3rem;
+    display: grid;
+    grid-template-columns: [start] 1fr [middle] 1fr [end] 1fr;
+    //grid-template-columns: [start-one] 1fr [end-one] 1fr [start-two] 1fr [end-two] 1fr [start-three] 1fr [end-three] 1fr ;
+    grid-column-gap: $grid-column-gap;
+    
+}
+
+.grid-column{
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: $border-radius-15;
+    position: relative;
+    display: flex;
+    align-items: center;
+    @include box-shadow;
+    background-color: transparent;
+    &__img{
+        width: 100%;
+        height: 64.9vh;
+        object-fit: cover;
+        border-radius: $border-radius-15;
+
+    }
+}
+
+.grid-column-start-to-middle{
+    grid-column: start / end;
+}
+.grid-column-middle-to-end{
+    grid-column: middle / -1;
+}
+
+
+.grid-column-one-tile{
+    grid-column: auto;
+}
+
