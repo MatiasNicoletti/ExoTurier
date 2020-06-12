@@ -1,59 +1,113 @@
-@import '../abstracts/typography';
-@import '../abstracts/colors';
-@import '../abstracts/utils';
-@import '../abstracts/mixins';
-.grid-container{
-    position: relative;
-    width: $app-width;
-    height: auto;
-    top: -1vh;
-    left: -0.5vw;
-    font-family: $main-font;
-    display: grid;
-    grid-template-rows: repeat(3, max-content);
-    grid-row-gap: $grid-row-gap;
+@import "../abstracts/typography";
+@import "../abstracts/colors";
+@import "../abstracts/utils";
+@import "../abstracts/mixins";
+
+.excursion-grid-container{
+    // background-color: red;
+}
+
+.grid-container {
+  position: relative;
+  width: $app-width;
+  height: auto;
+  top: -1vh;
+  left: -0.5vw;
+  font-family: $main-font;
+  display: grid;
+  grid-template-rows: repeat(3, max-content);
+  grid-row-gap: $grid-row-gap;
 }
 // minmax(15rem, 1fr)
-.grid-row{
-    position: relative;
-    width: auto;
-    height: 66vh;
-    padding: 0.3rem 0.3rem;
-    display: grid;
-    grid-template-columns: [start] 1fr [middle] 1fr [end] 1fr;
-    //grid-template-columns: [start-one] 1fr [end-one] 1fr [start-two] 1fr [end-two] 1fr [start-three] 1fr [end-three] 1fr ;
-    grid-column-gap: $grid-column-gap;
-    
+.grid-row {
+  position: relative;
+  width: auto;
+  height: 66vh;
+  padding: 0.3rem 0.3rem;
+  display: grid;
+  grid-template-columns: [start] 1fr [middle] 1fr [end] 1fr;
+  //grid-template-columns: [start-one] 1fr [end-one] 1fr [start-two] 1fr [end-two] 1fr [start-three] 1fr [end-three] 1fr ;
+  grid-column-gap: $grid-column-gap;
 }
 
-.grid-column{
+.grid-column {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  border-radius: $border-radius-15;
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: all .2s;
+
+  background-color: transparent;
+  &__img {
+    position: relative;
     width: 100%;
-    height: 100%;
-    max-height: 100%;
+    height: 64.9vh;
+    object-fit: cover;
     border-radius: $border-radius-15;
-    position: relative;
+    // @include box-shadow;
+    -webkit-box-shadow: 0px 0px 13px 5px rgba(0,0,0,0.3); 
+box-shadow: 0px 0px 13px 5px rgba(0,0,0,0.3);
+    z-index: 5;
+  }
+
+  &__content {
+    position: absolute;
+    z-index: 20;
+    // right: 50%;
+    height: 20%;
+    width: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
-    @include box-shadow;
-    background-color: transparent;
-    &__img{
+    top: 80%;
+    
+    &__blur {
+        position: absolute;
         width: 100%;
-        height: 64.9vh;
-        object-fit: cover;
-        border-radius: $border-radius-15;
-
+        height: 100%;
+        backdrop-filter: blur(4px);
+        z-index: 15;
+        -webkit-border-bottom-right-radius: $border-radius-15;
+    -webkit-border-bottom-left-radius: $border-radius-15;
+    -moz-border-radius-bottomright: $border-radius-15;
+    -moz-border-radius-bottomleft: $border-radius-15;
+    border-bottom-right-radius: $border-radius-15;
+    border-bottom-left-radius: $border-radius-15;
     }
+
+    &__title{
+        position: relative;
+        z-index: 20;
+        color: #ffffff;
+        font-size: $font-size-sm-normal + 0.2rem;
+        font-weight: 400;
+        font-style: italic;
+    }
+  }
+    :hover > &__img{
+        transition: all .2s;
+        filter: contrast(125%);
+        cursor: pointer;
+    } 
+    :hover > &__content{
+        transition: all .2s;
+        height: 40%;
+        top: 60%;
+        cursor: pointer;
+    }   
 }
 
-.grid-column-start-to-middle{
-    grid-column: start / end;
-}
-.grid-column-middle-to-end{
-    grid-column: middle / -1;
-}
 
-
-.grid-column-one-tile{
-    grid-column: auto;
+.grid-column-start-to-middle {
+  grid-column: start / end;
+}
+.grid-column-middle-to-end {
+  grid-column: middle / -1;
 }
 
+.grid-column-one-tile {
+  grid-column: auto;
+}
