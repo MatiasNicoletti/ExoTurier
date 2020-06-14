@@ -1,1 +1,110 @@
-<p>users-dashboard works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExoTourier - Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <main>
+
+    <div class="sidebar-container">
+      <div class="sidebar-logo">
+        <i class="fa fa-plane"></i>
+        &nbsp;
+        <span>Exo</span>Tourier
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="sidebar-menu__item">
+          <i class="fa fa-home"></i>
+          <a href="index.html">Dashboard</a>
+        </div>
+        <div class="sidebar-menu__title">
+          Excursions
+        </div>
+        <div class="sidebar-menu__item">
+          <i class="fa fa-plus-circle"></i>
+          <a href="new-excursion.html">New Excursion</a>
+        </div>
+        <div class="sidebar-menu__item">
+          <i class="fa fa-list-ul"></i>
+          <a href="view-excursions.html">View Excursions</a>
+        </div>
+        <div class="sidebar-menu__title">
+          Users
+        </div>
+        <div class="sidebar-menu__item">
+          <i class="fa fa-users"></i>
+          <a href="view-users.html">View Users</a>
+        </div>
+        <div class="sidebar-menu__title">
+          Charts
+        </div>
+        <div class="sidebar-menu__item">
+          <i class="fa fa-chart-line"></i>
+          <a href="reports.html">Reports</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-container">
+      ¡ Welcome User user !
+    </div>
+
+    <div class="content-container">
+      <div class="container">
+        <h4>New excursion</h4>
+        <h6>Complete the fields</h6>
+
+        <div class="container__form">
+
+          <form action="" method="post">
+            <div>
+              <label for="name">
+                <i class="fa fa-angle-right"></i>
+                Name
+              </label>
+              <input type="text" name="name" id="name">
+            </div>
+            <div>
+              <label for="price">
+                <i class="fa fa-angle-right"></i>
+                Price
+              </label>
+              <input type="number" name="price" id="price">
+            </div>
+            <div>
+              <label for="place">
+                <i class="fa fa-angle-right"></i>
+                Place
+              </label>
+              <input type="text" name="place" id="place">
+            </div>
+            <div>
+              <label for="city">
+                <i class="fa fa-angle-right"></i>
+                City
+              </label>
+              <input type="text" name="city" id="city">
+            </div>
+
+            <div class="container__form-btn">
+              <input type="submit" value="Register">
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+  <script src="https://kit.fontawesome.com/9a8541e3b5.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
