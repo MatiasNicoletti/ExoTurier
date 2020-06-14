@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { NavComponent } from './layout/nav/nav.component';
@@ -17,7 +16,13 @@ import { OutstandingExcursionComponent } from './layout/outstanding-excursion/ou
 import { FilterComponent } from './layout/filter/filter.component';
 import { GridComponent } from './layout/grid/grid.component';
 import { BuyExcursionComponent } from './layout/buy-excursion/buy-excursion.component';
-
+import { HomeDashboardComponent } from './layout/dashboard/home-dashboard/home-dashboard.component';
+import { HeaderDashboardComponent } from './layout/dashboard/header-dashboard/header-dashboard.component';
+import { FooterDashboardComponent } from './layout/dashboard/footer-dashboard/footer-dashboard.component';
+import { NewExcursionDashboardComponent } from './layout/dashboard/new-excursion-dashboard/new-excursion-dashboard.component';
+import { ExcursionsDashboardComponent } from './layout/dashboard/excursions-dashboard/excursions-dashboard.component';
+import { UsersDashboardComponent } from './layout/dashboard/users-dashboard/users-dashboard.component';
+import { ReportsDashboardComponent } from './layout/dashboard/reports-dashboard/reports-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +35,17 @@ import { BuyExcursionComponent } from './layout/buy-excursion/buy-excursion.comp
     OutstandingExcursionComponent,
     FilterComponent,
     GridComponent,
-    BuyExcursionComponent
+    BuyExcursionComponent,
+    HomeDashboardComponent,
+    HeaderDashboardComponent,
+    FooterDashboardComponent,
+    NewExcursionDashboardComponent,
+    ExcursionsDashboardComponent,
+    UsersDashboardComponent,
+    ReportsDashboardComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
-  providers: [UserService ,HttpService],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  providers: [UserService, HttpService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

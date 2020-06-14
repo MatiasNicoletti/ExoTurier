@@ -4,17 +4,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { ExcursionsGridComponent } from 'src/app/layout/excursions-grid/excursions-grid.component';
 import { LandingComponent } from 'src/app/layout/landing/landing.component';
 import { BuyExcursionComponent } from 'src/app/layout/buy-excursion/buy-excursion.component';
-
+import { HomeDashboardComponent } from 'src/app/layout/dashboard/home-dashboard/home-dashboard.component';
 
 const routes: Routes = [
-  { path: '', component: LandingComponent},
-  { path: 'home', component: LandingComponent},
+  { path: '', component: LandingComponent },
+  { path: 'home', component: LandingComponent },
   { path: 'excursions', component: ExcursionsGridComponent },
-  { path: 'single', component: BuyExcursionComponent}
+  { path: 'single', component: BuyExcursionComponent },
+  { path: 'dashboard', component: HomeDashboardComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
