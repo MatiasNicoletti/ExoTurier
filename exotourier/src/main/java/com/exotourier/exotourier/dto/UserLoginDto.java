@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Builder
 public class UserLoginDto implements Serializable {
 
-    private String username;
+    private String email;
     private String password;
 
 }

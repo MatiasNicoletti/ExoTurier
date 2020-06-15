@@ -31,7 +31,7 @@ public class LoginController {
     public ResponseEntity login(@RequestBody final UserLoginDto userLoginDto) throws UserInvalidLoginException, ValidationException{
 
         ResponseEntity response;
-        User u = Optional.ofNullable(userController.login(userLoginDto.getUsername(), userLoginDto.getPassword())).orElseThrow(UserInvalidLoginException::new);
+        User u = Optional.ofNullable(userController.login(userLoginDto.getEmail(), userLoginDto.getPassword())).orElseThrow(UserInvalidLoginException::new);
         String token = sessionManager.createSession(u);
         response = ResponseEntity.ok().headers(createHeaders(token)).build();
         return response;
