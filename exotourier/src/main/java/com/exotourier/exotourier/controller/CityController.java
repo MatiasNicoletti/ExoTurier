@@ -1,8 +1,8 @@
 package com.exotourier.exotourier.controller;
 
 import com.exotourier.exotourier.domain.City;
-import com.exotourier.exotourier.exception.CityAlreadyExistException;
-import com.exotourier.exotourier.exception.CityNotExistException;
+import com.exotourier.exotourier.exception.city.CityAlreadyExistException;
+import com.exotourier.exotourier.exception.city.CityNotExistException;
 import com.exotourier.exotourier.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

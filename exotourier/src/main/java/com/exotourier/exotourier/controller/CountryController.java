@@ -1,8 +1,8 @@
 package com.exotourier.exotourier.controller;
 
 import com.exotourier.exotourier.domain.Country;
-import com.exotourier.exotourier.exception.CountryAlreadyExistException;
-import com.exotourier.exotourier.exception.CountryNotExistException;
+import com.exotourier.exotourier.exception.country.CountryAlreadyExistException;
+import com.exotourier.exotourier.exception.country.CountryNotExistException;
 import com.exotourier.exotourier.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

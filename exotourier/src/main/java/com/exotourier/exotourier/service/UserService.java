@@ -2,9 +2,10 @@ package com.exotourier.exotourier.service;
 
 import com.exotourier.exotourier.dao.UserDao;
 import com.exotourier.exotourier.domain.User;
-import com.exotourier.exotourier.exception.UserEmailAlreadyExistException;
-import com.exotourier.exotourier.exception.UserNotExistException;
-import com.exotourier.exotourier.exception.UserNotFoundException;
+import com.exotourier.exotourier.exception.user.UserEmailAlreadyExistException;
+import com.exotourier.exotourier.exception.user.UserInvalidLoginException;
+import com.exotourier.exotourier.exception.user.UserNotExistException;
+import com.exotourier.exotourier.exception.user.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.util.Optional;
 
 @Service
 public class UserService {
+
 
     private final UserDao userDao;
 
@@ -45,4 +47,10 @@ public class UserService {
         updatedUser.setId(id);
         return userDao.save(user.get());
     }
+
+    public User login(String email, String password) throws UserInvalidLoginException {
+            User user = userDao.findByUsernameAndPassword(email, password);
+            return Optional.ofNullable(user).orElseThrow(UserInvalidLoginException::new);
+    }
+
 }

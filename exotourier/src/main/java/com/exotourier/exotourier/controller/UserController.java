@@ -1,9 +1,10 @@
 package com.exotourier.exotourier.controller;
 
 import com.exotourier.exotourier.domain.User;
-import com.exotourier.exotourier.exception.UserEmailAlreadyExistException;
-import com.exotourier.exotourier.exception.UserNotExistException;
-import com.exotourier.exotourier.exception.UserNotFoundException;
+import com.exotourier.exotourier.exception.user.UserEmailAlreadyExistException;
+import com.exotourier.exotourier.exception.user.UserInvalidLoginException;
+import com.exotourier.exotourier.exception.user.UserNotExistException;
+import com.exotourier.exotourier.exception.user.UserNotFoundException;
 import com.exotourier.exotourier.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import javax.validation.ValidationException;
 import java.net.URI;
 import java.util.List;
 
@@ -58,6 +60,15 @@ public class UserController {
                 .path("/{id}")
                 .buildAndExpand(user.getId())
                 .toUri();
+    }
+
+    public User login(final String email,
+                                final String password) throws ValidationException, UserInvalidLoginException {
+        if ((email != null) && (password != null)) {
+            return userService.login(email, password);
+        } else {
+            throw new ValidationException("Username and password must have a value");
+        }
     }
 
 }

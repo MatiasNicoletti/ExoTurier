@@ -2,6 +2,14 @@ package com.exotourier.exotourier.controller;
 
 import com.exotourier.exotourier.dto.ErrorDto;
 import com.exotourier.exotourier.exception.*;
+import com.exotourier.exotourier.exception.city.CityAlreadyExistException;
+import com.exotourier.exotourier.exception.city.CityNotExistException;
+import com.exotourier.exotourier.exception.country.CountryAlreadyExistException;
+import com.exotourier.exotourier.exception.country.CountryNotExistException;
+import com.exotourier.exotourier.exception.excursion.ExcursionAlreadyExistException;
+import com.exotourier.exotourier.exception.excursion.ExcursionNotExistException;
+import com.exotourier.exotourier.exception.user.UserEmailAlreadyExistException;
+import com.exotourier.exotourier.exception.user.UserNotExistException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;

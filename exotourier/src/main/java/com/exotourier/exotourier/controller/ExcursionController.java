@@ -1,8 +1,8 @@
 package com.exotourier.exotourier.controller;
 
 import com.exotourier.exotourier.domain.Excursion;
-import com.exotourier.exotourier.exception.ExcursionAlreadyExistException;
-import com.exotourier.exotourier.exception.ExcursionNotExistException;
+import com.exotourier.exotourier.exception.excursion.ExcursionAlreadyExistException;
+import com.exotourier.exotourier.exception.excursion.ExcursionNotExistException;
 import com.exotourier.exotourier.service.ExcursionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

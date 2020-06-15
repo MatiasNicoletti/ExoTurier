@@ -2,8 +2,8 @@ package com.exotourier.exotourier.service;
 
 import com.exotourier.exotourier.dao.CountryDao;
 import com.exotourier.exotourier.domain.Country;
-import com.exotourier.exotourier.exception.CountryAlreadyExistException;
-import com.exotourier.exotourier.exception.CountryNotExistException;
+import com.exotourier.exotourier.exception.country.CountryAlreadyExistException;
+import com.exotourier.exotourier.exception.country.CountryNotExistException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

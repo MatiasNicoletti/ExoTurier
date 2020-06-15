@@ -1,4 +1,4 @@
-package com.exotourier.exotourier.exception;
+package com.exotourier.exotourier.exception.excursion;
 
 public class ExcursionAlreadyExistException extends Throwable {
 }
