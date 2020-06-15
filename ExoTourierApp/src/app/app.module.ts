@@ -23,6 +23,7 @@ import { NewExcursionDashboardComponent } from './layout/dashboard/new-excursion
 import { ExcursionsDashboardComponent } from './layout/dashboard/excursions-dashboard/excursions-dashboard.component';
 import { UsersDashboardComponent } from './layout/dashboard/users-dashboard/users-dashboard.component';
 import { ReportsDashboardComponent } from './layout/dashboard/reports-dashboard/reports-dashboard.component';
+import { SidebarDashboardComponent } from './layout/dashboard/sidebar-dashboard/sidebar-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ReportsDashboardComponent } from './layout/dashboard/reports-dashboard/
     ExcursionsDashboardComponent,
     UsersDashboardComponent,
     ReportsDashboardComponent,
+    SidebarDashboardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [UserService, HttpService],
