@@ -2,9 +2,9 @@ package com.exotourier.exotourier.service;
 
 import com.exotourier.exotourier.dao.ExcursionDao;
 import com.exotourier.exotourier.domain.Excursion;
-import com.exotourier.exotourier.exception.ExcursionNotExistException;
+import com.exotourier.exotourier.exception.excursion.ExcursionNotExistException;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.exotourier.exotourier.exception.ExcursionAlreadyExistException;
+import com.exotourier.exotourier.exception.excursion.ExcursionAlreadyExistException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -47,5 +47,4 @@ public class ExcursionService {
         updatedExcursion.setId(id);
         return excursionDao.save(excursion.get());
     }
-
 }

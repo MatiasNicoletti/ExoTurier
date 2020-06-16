@@ -16,10 +16,16 @@ export class AppComponent implements AfterViewInit{
 
 
   getUsers(){
-  this.httpService.fetchUsers().subscribe(res => {
+  /*this.httpService.fetchUsers().subscribe(res => {
     console.log(res);
   }, err => {
     console.log('Lista de usuarios vacia');
+  });*/
+
+  this.httpService.fetchExcursions().subscribe(res => {
+    console.log(res);
+  }, err => {
+    console.log('Lista de excursiones vacia');
   });
   
   }

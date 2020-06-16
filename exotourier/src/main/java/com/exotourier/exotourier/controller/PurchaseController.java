@@ -2,7 +2,7 @@ package com.exotourier.exotourier.controller;
 
 import com.exotourier.exotourier.domain.Excursion;
 import com.exotourier.exotourier.domain.Purchase;
-import com.exotourier.exotourier.exception.ExcursionNotExistException;
+import com.exotourier.exotourier.exception.excursion.ExcursionNotExistException;
 import com.exotourier.exotourier.exception.PurchaseNotExistException;
 import com.exotourier.exotourier.projection.MostPurchased;
 import com.exotourier.exotourier.service.PurchaseService;

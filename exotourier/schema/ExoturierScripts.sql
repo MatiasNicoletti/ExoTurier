@@ -40,6 +40,7 @@ CREATE TABLE `users` (
     CONSTRAINT `Pk_user` PRIMARY KEY (`id`),
     CONSTRAINT `Unq_user_email` UNIQUE (email)
 );
+
 insert into users(firstname, surname, email, password, is_active) values('attila', 'the hun', 'attila@gmail.com', '123456', true);
 select * from users;
 CREATE TABLE `users_x_excursions` (

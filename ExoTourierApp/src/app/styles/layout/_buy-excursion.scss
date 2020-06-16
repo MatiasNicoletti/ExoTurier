@@ -15,9 +15,12 @@
   &__left-panel{
     width: 50%;
     height: 100%;
+    overflow-y: hidden;
       &__img{
+        position: relative;
           width: 100%;
-          height: 100vh;
+          height: auto;
+          top: -50%;
       }
   }
 
@@ -35,6 +38,7 @@
           display: flex;
             align-items: center;
             background-color: $color-earthy-red-opac;
+            
           &__map{
               width: 50%;
                 text-align: center;

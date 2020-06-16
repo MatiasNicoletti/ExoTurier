@@ -1,0 +1,35 @@
+@import "../abstracts/typography";
+@import "../abstracts/colors";
+@import "../abstracts/utils";
+@import "../abstracts/mixins";
+
+.popup-container{
+    @include absCenter;
+    max-width: 30rem;
+    max-height: 30rem;
+    background-color: $color-main-grey-dark;
+    padding: 1rem;
+    border-radius: $border-radius-15;
+    
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    & *{
+        margin-top: 1.5rem;
+    }
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: $margin-md;
+    font-family: $main-font;
+    & *{
+        margin: 0.5rem;
+    }
+}

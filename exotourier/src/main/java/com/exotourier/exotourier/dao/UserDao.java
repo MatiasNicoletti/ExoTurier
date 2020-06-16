@@ -12,4 +12,21 @@ public interface UserDao extends JpaRepository<User,Integer> {
 
     Optional<User> findByEmail(String email);
 
+
+    @Query(
+            value = "SELECT count(u.id) " +
+                    "FROM users u " +
+                    "WHERE u.username = ?1" +
+                    "AND u.password = ?2",
+            nativeQuery = true
+    )
+    int findByUsernameBoolean(String username);
+
+    @Query(
+            value = "SELECT u.* FROM users u " +
+                    "WHERE u.email = ?1 AND "+
+                    "u.password = ?2",
+            nativeQuery = true
+    )
+    User findByUsernameAndPassword(String email, String password);
 }

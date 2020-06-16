@@ -8,6 +8,8 @@ export class Excursion{
     price: number;
     place: string;
     isActive: boolean;
+    gridClass: string;
+    imagePath: string;
     city: City;
     purchases: Purchase[];
 }

@@ -5,6 +5,7 @@ import { map, tap, catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { User } from '../models/User';
 import { strict } from 'assert';
+import { Excursion } from '../models/Excursion';
 @Injectable({
   providedIn: 'root'
 })
@@ -39,4 +40,10 @@ export class HttpService {
     return this.http.post('http://localhost:8080/users/', user, { headers: this.httpHeaders });
   }
    
+public fetchExcursions(): Observable<Excursion[]>{
+  return this.http.get<Excursion[]>('http://localhost:8080/excursions/').pipe(
+      );
+      
+}
+
 }

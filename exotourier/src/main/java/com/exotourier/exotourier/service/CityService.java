@@ -2,8 +2,8 @@ package com.exotourier.exotourier.service;
 
 import com.exotourier.exotourier.dao.CityDao;
 import com.exotourier.exotourier.domain.City;
-import com.exotourier.exotourier.exception.CityAlreadyExistException;
-import com.exotourier.exotourier.exception.CityNotExistException;
+import com.exotourier.exotourier.exception.city.CityAlreadyExistException;
+import com.exotourier.exotourier.exception.city.CityNotExistException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
