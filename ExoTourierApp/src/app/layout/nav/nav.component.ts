@@ -27,7 +27,7 @@ export class NavComponent implements OnInit {
     });
   }
 
-  changeColors() {
+  showPopUp() {
     this.service.buttonClickEventTrack.next(false);
   }
 }

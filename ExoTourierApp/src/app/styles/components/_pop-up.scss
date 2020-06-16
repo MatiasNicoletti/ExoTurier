@@ -4,13 +4,14 @@
 @import "../abstracts/mixins";
 
 .popup-container{
+
     @include absCenter;
     max-width: 30rem;
     max-height: 30rem;
     background-color: $color-main-grey-dark;
     padding: 1rem;
     border-radius: $border-radius-15;
-    
+    z-index: 100;    
 }
 
 .inputs{
