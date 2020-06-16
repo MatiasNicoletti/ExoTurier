@@ -8,6 +8,7 @@
     color: #ffffff;
     outline: none;
     border-radius: $border-radius-30;
+    cursor: pointer;
 }
 
 .btn-action{
@@ -19,6 +20,7 @@
     text-transform: uppercase;
     @include box-shadow;
     margin: 0 $margin-md;
+
 }
 
 .btn-medium{

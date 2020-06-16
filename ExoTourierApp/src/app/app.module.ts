@@ -26,7 +26,7 @@ import { ReportsDashboardComponent } from './layout/dashboard/reports-dashboard/
 import { SidebarDashboardComponent } from './layout/dashboard/sidebar-dashboard/sidebar-dashboard.component';
 import { NavDashboardComponent } from './layout/dashboard/nav-dashboard/nav-dashboard.component';
 import { LoginPopupComponent } from './layout/login-popup/login-popup.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,8 +50,8 @@ import { LoginPopupComponent } from './layout/login-popup/login-popup.component'
     NavDashboardComponent,
     LoginPopupComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule, ReactiveFormsModule], 
   providers: [UserService, HttpService],
   bootstrap: [AppComponent],
-})
+}) 
 export class AppModule {}

@@ -6,12 +6,13 @@ import { Observable } from 'rxjs';
 import { User } from '../models/User';
 import { strict } from 'assert';
 import { Excursion } from '../models/Excursion';
+import { LoginDto } from '../models/LoginDto';
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
-  constructor(private http: HttpClient, private userService: UserService) { }
+  constructor(private http: HttpClient) { }
 
   public fetchUsers(): Observable<User[]>{
 
@@ -44,6 +45,15 @@ public fetchExcursions(): Observable<Excursion[]>{
   return this.http.get<Excursion[]>('http://localhost:8080/excursions/').pipe(
       );
       
+}
+
+public login(email:string, password:string): Observable<LoginDto>{
+  
+  let loginDto: LoginDto = new LoginDto(); 
+  loginDto.email = email;
+  loginDto.password = password;
+  console.log(loginDto);
+  return this.http.post<LoginDto>('http://localhost:8080/login/login',loginDto , { headers: this.httpHeaders });
 }
 
 }

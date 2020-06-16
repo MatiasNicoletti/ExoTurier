@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { HttpService } from '../http/http.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   users: [] = [];
-  constructor() { 
+  constructor(private httpService: HttpService) { 
    
   }
 
@@ -13,5 +14,12 @@ export class UserService {
 
   public setUsers(users){
     this.users = users;
+  }
+
+  public login(email:string, password:string){
+   
+      return this.httpService.login(email, password).subscribe(res =>{
+        console.log(res);
+      });
   }
 }

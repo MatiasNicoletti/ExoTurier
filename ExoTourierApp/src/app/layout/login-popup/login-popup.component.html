@@ -1,13 +1,13 @@
-<div class="popup-container"*ngIf="visible">
+<div class="popup-container" *ngIf="visible">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="inputs">
-        <input type="text" placeholder="Email..." class="input input-md">
-        <input type="password" placeholder="Password..." class="input input-md">
+      <input type="text" formControlName="email" placeholder="Email..." class="input input-md" />
+      <input type="password" formControlName="password" placeholder="Password..." class="input input-md" />
     </div>
     <div class="buttons">
-        <button class="btn btn-action btn-medium">login</button> 
-        <span>or</span>
-        <button class="btn btn-action btn-medium">sign in</button> 
+      <button type="submit" class="btn btn-action btn-medium" >login</button>
+      <span>or</span>
+      <button class="btn btn-action btn-medium">sign in</button>
     </div>
-    
+  </form>
 </div>
- 
