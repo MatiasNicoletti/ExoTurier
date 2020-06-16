@@ -1,0 +1,21 @@
+@import "../abstracts/typography";
+@import "../abstracts/colors";
+@import "../abstracts/utils";
+@import "../abstracts/mixins";
+
+.input{
+    font-family: $main-font;
+    padding: $padding-sm;
+    margin: $margin-sm 0;
+    margin-left: $margin-md;
+    margin-right: $margin-md;
+    border-radius: $border-radius-30;
+    padding-left: 1rem;
+    border: none;
+    font-size: $font-size-sm-min;
+    @include box-shadow;
+}
+
+.input-md{
+    height: 2rem;
+}
