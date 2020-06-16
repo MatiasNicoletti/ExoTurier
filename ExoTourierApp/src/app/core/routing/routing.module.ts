@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'dashboard', component: HomeDashboardComponent },
   { path: 'dashboard/excursion', component: NewExcursionDashboardComponent },
   { path: 'dashboard/excursions', component: ExcursionsDashboardComponent },
-  { path: 'dashboard/user', component: UsersDashboardComponent },
+  { path: 'dashboard/users', component: UsersDashboardComponent },
   { path: 'dashboard/reports', component: ReportsDashboardComponent },
 ];
 

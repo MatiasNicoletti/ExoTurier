@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-new-excursion-dashboard',
   templateUrl: './new-excursion-dashboard.component.html',
-  styleUrls: ['./new-excursion-dashboard.component.scss']
+  styleUrls: ['../../../styles/layout/dashboard/_new-excursions.scss'],
 })
 export class NewExcursionDashboardComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

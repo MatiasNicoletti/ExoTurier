@@ -1,123 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
+<app-nav></app-nav>
+<app-sidebar-dashboard></app-sidebar-dashboard>
+<app-nav-dashboard></app-nav-dashboard>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ExoTourier - Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-</head>
+<div class="content-container">
+  <div class="container">
+    <h4>Reports</h4>
 
-<body>
+    <div class="reports-container">
 
-  <main>
+      <div class="reports-container__item">
 
-    <div class="sidebar-container">
-      <div class="sidebar-logo">
-        <i class="fa fa-plane"></i>
-        &nbsp;
-        <span>Exo</span>Tourier
-      </div>
-
-      <div class="sidebar-menu">
-        <div class="sidebar-menu__item">
-          <i class="fa fa-home"></i>
-          <a href="index.html">Dashboard</a>
-        </div>
-        <div class="sidebar-menu__title">
+        <div class="reports-container__item-title">
           Excursions
         </div>
-        <div class="sidebar-menu__item">
-          <i class="fa fa-plus-circle"></i>
-          <a href="new-excursion.html">New Excursion</a>
+        <div class="reports-container__item-content">
+          <ul>
+            <li>
+              <span>- Total excursions&nbsp; </span>
+              <i class="fa fa-arrow-right"></i>
+              <span>&nbsp;50</span>
+            </li>
+            <li>
+              <span>- Total sales&nbsp; </span>
+              <i class="fa fa-arrow-right"></i>
+              <span>&nbsp;300</span>
+            </li>
+            <li>
+              <span>- Total amount&nbsp; </span>
+              <i class="fa fa-arrow-right"></i>
+              <span>&nbsp;$10000</span>
+            </li>
+            <li>
+              <span>- Best selling excursion&nbsp; </span>
+              <i class="fa fa-arrow-right"></i>
+              <span>&nbsp;Pepe y las pepas</span>
+            </li>
+          </ul>
         </div>
-        <div class="sidebar-menu__item">
-          <i class="fa fa-list-ul"></i>
-          <a href="view-excursions.html">View Excursions</a>
-        </div>
-        <div class="sidebar-menu__title">
+
+      </div>
+
+      <div class="reports-container__item color-primary">
+
+        <div class="reports-container__item-title">
           Users
         </div>
-        <div class="sidebar-menu__item">
-          <i class="fa fa-users"></i>
-          <a href="view-users.html">View Users</a>
-        </div>
-        <div class="sidebar-menu__title">
-          Charts
-        </div>
-        <div class="sidebar-menu__item">
-          <i class="fa fa-chart-line"></i>
-          <a href="reports.html">Reports</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="navbar-container">
-      ¡ Welcome User user !
-    </div>
-
-    <div class="content-container">
-      <div class="container">
-        <h4>Reports</h4>
-
-        <div class="reports-container">
-
-          <div class="reports-container__item">
-
-            <div class="reports-container__item-title">
-              Excursions
-            </div>
-            <div class="reports-container__item-content">
-              <ul>
-                <li>
-                  <span>- Total excursions&nbsp; </span>
-                  <i class="fa fa-arrow-right"></i>
-                  <span>&nbsp;50</span>
-                </li>
-                <li>
-                  <span>- Total sales&nbsp; </span>
-                  <i class="fa fa-arrow-right"></i>
-                  <span>&nbsp;300</span>
-                </li>
-                <li>
-                  <span>- Total amount&nbsp; </span>
-                  <i class="fa fa-arrow-right"></i>
-                  <span>&nbsp;$10000</span>
-                </li>
-                <li>
-                  <span>- Best selling excursion&nbsp; </span>
-                  <i class="fa fa-arrow-right"></i>
-                  <span>&nbsp;Pepe y las pepas</span>
-                </li>
-              </ul>
-            </div>
-
-          </div>
-
-          <div class="reports-container__item color-primary">
-
-            <div class="reports-container__item-title">
-              Users
-            </div>
-            <div class="reports-container__item-content">
-              <ul>
-                <li>
-                  <span>- Total users&nbsp; </span>
-                  <i class="fa fa-arrow-right"></i>
-                  <span>&nbsp;50</span>
-                </li>
-              </ul>
-            </div>
-
-          </div>
-
+        <div class="reports-container__item-content">
+          <ul>
+            <li>
+              <span>- Total users&nbsp; </span>
+              <i class="fa fa-arrow-right"></i>
+              <span>&nbsp;50</span>
+            </li>
+          </ul>
         </div>
 
       </div>
+
     </div>
 
-  </main>
-  <script src="https://kit.fontawesome.com/9a8541e3b5.js" crossorigin="anonymous"></script>
-</body>
+  </div>
+</div>
 
-</html>
+<script src="https://kit.fontawesome.com/9a8541e3b5.js" crossorigin="anonymous"></script>

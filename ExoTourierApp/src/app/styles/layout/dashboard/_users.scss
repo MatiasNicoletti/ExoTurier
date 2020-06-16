@@ -1,0 +1,27 @@
+/* Users */
+table,
+th,
+td {
+  padding: 1em;
+  border-bottom: 1px solid black;
+}
+
+th {
+  background-color: #404e67;
+  color: #f3f3f3;
+}
+
+.table-container {
+  border-collapse: collapse;
+  text-align: left;
+  width: 100%;
+  font-size: 1.3rem;
+}
+
+.table-container td {
+  height: 5rem;
+}
+
+.table-container td ion-icon {
+  font-size: 2rem;
+}

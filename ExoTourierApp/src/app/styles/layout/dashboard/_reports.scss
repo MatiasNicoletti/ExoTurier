@@ -1,0 +1,26 @@
+/* Reports */
+.reports-container__item {
+  color: #f3f3f3;
+  padding: 2em;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  border-radius: 5px;
+  background-color: #404e67;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.reports-container__item-content {
+  font-size: 1.5rem;
+}
+
+.reports-container__item-content li {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 1em;
+}
+
+.reports-container__item-content span {
+  color: inherit;
+}
