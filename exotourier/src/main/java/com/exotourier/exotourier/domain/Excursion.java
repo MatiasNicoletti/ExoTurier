@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Excursion {
+public class    Excursion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,6 +41,14 @@ public class Excursion {
     @NotNull
     @Column(name = "is_active")
     private boolean isActive;
+
+    @NotNull
+    @Column(name = "grid_class")
+    private String gridClass;
+
+    @NotNull
+    @Column(name = "image_path")
+    private String  imagePath;
 
     @NotNull
     @JsonBackReference(value = "excursionCity")

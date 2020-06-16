@@ -3,7 +3,6 @@ package com.exotourier.exotourier.controller;
 import com.exotourier.exotourier.domain.User;
 import com.exotourier.exotourier.dto.UserLoginDto;
 import com.exotourier.exotourier.exception.user.UserInvalidLoginException;
-import com.exotourier.exotourier.session.SessionManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +16,10 @@ import java.util.Optional;
 public class LoginController {
 
     private final UserController userController;
-    private final SessionManager sessionManager;
 
     @Autowired
-    public LoginController(final UserController userController,
-                           final SessionManager sessionManager) {
+    public LoginController(final UserController userController) {
         this.userController = userController;
-        this.sessionManager = sessionManager;
     }
 
 
@@ -32,14 +28,12 @@ public class LoginController {
 
         ResponseEntity response;
         User u = Optional.ofNullable(userController.login(userLoginDto.getEmail(), userLoginDto.getPassword())).orElseThrow(UserInvalidLoginException::new);
-        String token = sessionManager.createSession(u);
-        response = ResponseEntity.ok().headers(createHeaders(token)).build();
+        response = ResponseEntity.ok().body(u);
         return response;
     }
 
     @PostMapping("/logout")
-    public ResponseEntity logout(@RequestHeader("Authorization") final String token) {
-        sessionManager.removeSession(token);
+    public ResponseEntity logout() {
         return ResponseEntity.ok().build();
     }
 

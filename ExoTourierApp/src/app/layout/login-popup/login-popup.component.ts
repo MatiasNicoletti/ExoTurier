@@ -8,7 +8,7 @@ import { UtilsServiceService } from 'src/app/utils-service.service';
   styleUrls: ['../../styles/components/_pop-up.scss']
 }) 
 export class LoginPopupComponent implements OnInit{
-  visible: boolean = true;
+  visible: boolean = false;
 
   constructor(private service: UtilsServiceService) { }
   
