@@ -1,10 +1,13 @@
 package com.exotourier.exotourier.controller;
 
+import com.exotourier.exotourier.domain.Purchase;
 import com.exotourier.exotourier.domain.User;
+import com.exotourier.exotourier.exception.PurchaseNotExistException;
 import com.exotourier.exotourier.exception.user.UserEmailAlreadyExistException;
 import com.exotourier.exotourier.exception.user.UserInvalidLoginException;
 import com.exotourier.exotourier.exception.user.UserNotExistException;
 import com.exotourier.exotourier.exception.user.UserNotFoundException;
+import com.exotourier.exotourier.service.PurchaseService;
 import com.exotourier.exotourier.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,10 +26,12 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+    private final PurchaseService purchaseService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, PurchaseService purchaseService) {
         this.userService = userService;
+        this.purchaseService = purchaseService;
     }
 
     @GetMapping("/")
@@ -45,6 +50,12 @@ public class UserController {
     public ResponseEntity<User> getByID(@PathVariable Integer idUser) throws UserNotFoundException {
         User user = userService.getById(idUser);
         return ResponseEntity.ok(user);
+    }
+
+    @GetMapping("/{idUser}/purchases")
+    public ResponseEntity<List<Purchase>> getUserPurchases(@PathVariable Integer idUser) throws UserNotFoundException, PurchaseNotExistException {
+        List <Purchase> userPurchases = purchaseService.getUserPurchases(idUser);
+        return ResponseEntity.ok(userPurchases);
     }
 
     @PutMapping("/{id}")

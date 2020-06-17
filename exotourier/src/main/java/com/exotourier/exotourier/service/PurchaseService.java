@@ -34,4 +34,9 @@ public class PurchaseService {
         return purchaseDao.findMostPurchased();
     }
 
+    public List<Purchase> getUserPurchases(Integer userId) throws PurchaseNotExistException{
+
+        return purchaseDao.getUserExcursions(userId).orElseThrow(PurchaseNotExistException::new);
+    }
+
 }

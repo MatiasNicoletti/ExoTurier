@@ -12,4 +12,5 @@ public interface ExcursionDao extends JpaRepository<Excursion, Integer> {
     Optional<Excursion> findByName(String name);
 
     Optional<Excursion> findById(Integer id);
+
 }

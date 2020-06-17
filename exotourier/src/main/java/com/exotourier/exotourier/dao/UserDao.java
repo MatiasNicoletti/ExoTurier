@@ -29,4 +29,5 @@ public interface UserDao extends JpaRepository<User,Integer> {
             nativeQuery = true
     )
     User findByUsernameAndPassword(String email, String password);
+
 }

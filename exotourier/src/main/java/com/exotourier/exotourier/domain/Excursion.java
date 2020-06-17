@@ -47,8 +47,12 @@ public class    Excursion {
     private String gridClass;
 
     @NotNull
-    @Column(name = "image_path")
-    private String  imagePath;
+    @Column(name = "image_path_main")
+    private String  image_path_main;
+
+    @NotNull
+    @Column(name = "image_path_main")
+    private String  image_path_secondary;
 
     @NotNull
     @JsonBackReference(value = "excursionCity")
@@ -61,5 +65,6 @@ public class    Excursion {
 
     @OneToMany(mappedBy = "excursion")
     private List<UserExcursion> userExcursionList;
+
 
 }

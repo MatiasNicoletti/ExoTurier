@@ -27,9 +27,13 @@ CREATE TABLE `excursions` (
     `id_city` INT NOT NULL,
     `is_active` BOOLEAN DEFAULT TRUE NOT NULL,
     `grid_class` VARCHAR(45) NOT NULL,
-    `image_path` VARCHAR(255) NOT NULL,
+    `image_path_main` VARCHAR(255) NOT NULL,
+    `image_path_secondary` VARCHAR(255) NOT NULL,
     CONSTRAINT `Pk_excursion` PRIMARY KEY (`id`),
     CONSTRAINT `Fk_excursions_city` FOREIGN KEY(`id_city`) REFERENCES `cities`(`id`)
+
+
+
 );
 
 CREATE TABLE `users` (
