@@ -1,22 +1,28 @@
 package com.exotourier.exotourier.service;
 
 import com.exotourier.exotourier.dao.PurchaseDao;
+import com.exotourier.exotourier.dao.UserDao;
 import com.exotourier.exotourier.domain.Purchase;
+import com.exotourier.exotourier.domain.User;
 import com.exotourier.exotourier.exception.PurchaseNotExistException;
+import com.exotourier.exotourier.exception.user.UserNotExistException;
 import com.exotourier.exotourier.projection.MostPurchased;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PurchaseService {
 
     private final PurchaseDao purchaseDao;
+    private final UserDao userDao;
 
     @Autowired
-    public PurchaseService(PurchaseDao purchaseDao) {
+    public PurchaseService(PurchaseDao purchaseDao, UserDao userDao) {
         this.purchaseDao = purchaseDao;
+        this.userDao = userDao;
     }
 
     public List<Purchase> getAll() {
@@ -34,8 +40,8 @@ public class PurchaseService {
         return purchaseDao.findMostPurchased();
     }
 
-    public List<Purchase> getUserPurchases(Integer userId) throws PurchaseNotExistException{
-
+    public List<Purchase> getUserPurchases(Integer userId) throws PurchaseNotExistException, UserNotExistException {
+        Optional<User> user = Optional.ofNullable(userDao.findById(userId).orElseThrow(UserNotExistException::new));
         return purchaseDao.getUserExcursions(userId).orElseThrow(PurchaseNotExistException::new);
     }
 

@@ -53,7 +53,7 @@ public class UserController {
     }
 
     @GetMapping("/{idUser}/purchases")
-    public ResponseEntity<List<Purchase>> getUserPurchases(@PathVariable Integer idUser) throws UserNotFoundException, PurchaseNotExistException {
+    public ResponseEntity<List<Purchase>> getUserPurchases(@PathVariable Integer idUser) throws PurchaseNotExistException, UserNotExistException {
         List <Purchase> userPurchases = purchaseService.getUserPurchases(idUser);
         return ResponseEntity.ok(userPurchases);
     }

@@ -23,7 +23,7 @@ public interface PurchaseDao extends JpaRepository<Purchase, Integer> {
 
 
     @Query(
-            value = "SELECT p.* FROM purchases  " +
+            value = "SELECT p.* FROM purchases p " +
                     "WHERE p.id_user = ?1",
             nativeQuery = true
     )
