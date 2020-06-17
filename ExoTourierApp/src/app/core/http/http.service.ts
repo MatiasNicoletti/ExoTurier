@@ -56,4 +56,8 @@ public login(email:string, password:string): Observable<LoginDto>{
   return this.http.post<LoginDto>('http://localhost:8080/login/login',loginDto , { headers: this.httpHeaders });
 }
 
+public getExcursionById(id:number): Observable<Excursion>{
+  return this.http.get<Excursion>('http://localhost:8080/excursions/'+id).pipe();
+}
+
 }

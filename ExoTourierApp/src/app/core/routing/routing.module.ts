@@ -14,8 +14,7 @@ const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'home', component: LandingComponent },
   { path: 'excursions', component: ExcursionsGridComponent },
-  { path: 'single', component: BuyExcursionComponent },
-
+  { path: 'excursions/buy', component: BuyExcursionComponent },
   { path: 'dashboard', component: HomeDashboardComponent },
   { path: 'dashboard/excursion', component: NewExcursionDashboardComponent },
   { path: 'dashboard/excursions', component: ExcursionsDashboardComponent },

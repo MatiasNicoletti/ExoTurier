@@ -2,8 +2,8 @@
 <div class="grid-container" >
     <div class="grid-row" >
         
-        <div *ngFor="let ex of excursions;" [ngClass]="'grid-column grid-column-' + ex.gridClass">
-            <img [src]="'../../../assets/img/imgs/' + ex.imagePath"  alt="" class="grid-column__img">
+        <div *ngFor="let ex of excursions;" [ngClass]="'grid-column grid-column-' + ex.gridClass" >
+            <img [src]="'../../../assets/img/imgs/' + ex.imagePath"  alt="" class="grid-column__img" (click)="onSelectedExcursion(ex.id)">
             <div class="grid-column__content">
                 <div class="grid-column__content__blur"></div>
                 <h3 class="grid-column__content__title">{{ex.name}}</h3>

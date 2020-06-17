@@ -6,6 +6,7 @@
 .popup-container{
 
     @include absCenter;
+    position: fixed;
     max-width: 30rem;
     max-height: 30rem;
     background-color: $color-main-grey-dark;

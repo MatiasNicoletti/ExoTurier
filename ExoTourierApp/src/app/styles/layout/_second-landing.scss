@@ -1,0 +1,34 @@
+@import "../abstracts/typography";
+@import "../abstracts/colors";
+@import "../abstracts/utils";
+@import "../abstracts/mixins";
+
+.container-second-landing{
+    position: relative;
+    width: $app-width;
+    height: 100vh;
+    top: -1vh;
+    left: -0.5vw;
+    font-family: $main-font;
+    display: flex;
+    flex-direction: row;
+    &__right{
+        position: relative;
+        width: 60%;
+        text-align: end;
+        & img{
+            height: 100vh;
+        }
+    }
+    &__left{
+        &__descrip{
+            font-size: $font-size-sm-min - 0.2rem;
+            letter-spacing: 0.15rem;
+            // background-color: rgb(135, 135, 175);
+            height: 20%;
+            & h3{
+                font-weight: 300;
+            }
+        }
+    }
+}

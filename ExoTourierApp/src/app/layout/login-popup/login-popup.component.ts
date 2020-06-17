@@ -10,7 +10,7 @@ import { UserService } from 'src/app/core/services/user.service';
   styleUrls: ['../../styles/components/_pop-up.scss']
 }) 
 export class LoginPopupComponent implements OnInit{
-  visible: boolean = true;
+  visible: boolean = false;
   loginForm: FormGroup;
 
   constructor(private service: UtilsServiceService, private userService: UserService) { }
