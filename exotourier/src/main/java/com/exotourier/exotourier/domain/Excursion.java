@@ -48,11 +48,11 @@ public class    Excursion {
 
     @NotNull
     @Column(name = "image_path_main")
-    private String  image_path_main;
+    private String  imagePathMain;
 
     @NotNull
-    @Column(name = "image_path_main")
-    private String  image_path_secondary;
+    @Column(name = "image_path_secondary")
+    private String  imagePathSecondary;
 
     @NotNull
     @JsonBackReference(value = "excursionCity")

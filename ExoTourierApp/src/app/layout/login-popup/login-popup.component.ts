@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { UtilsServiceService } from 'src/app/utils-service.service';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { UserService } from 'src/app/core/services/user.service';
+import { User } from 'src/app/core/models/User';
 
 @Component({
   selector: 'app-login-popup',
@@ -13,7 +14,7 @@ export class LoginPopupComponent implements OnInit{
   visible: boolean = false;
   loginForm: FormGroup;
 
-  constructor(private service: UtilsServiceService, private userService: UserService) { }
+  constructor(private service: UtilsServiceService, private userService: UserService,private route: ActivatedRoute,private router: Router) { }
   
   ngOnInit(): void {
     this.service.buttonClickEventTrack.subscribe(res=>{
@@ -28,8 +29,11 @@ export class LoginPopupComponent implements OnInit{
   }
 
   onSubmit(){
-    console.log(this.userService.login(this.loginForm.controls['email'].value,this.loginForm.controls['password'].value)); 
-    
+    //this.loginForm.controls['email'].valuethis.loginForm.controls['password'].value
+    this.userService.login('attila@gmail.com','123456').subscribe(res =>{
+      this.service.userLogged.next(res);
+    });
+    this.showPopup();
   }
 
   private initForm(){

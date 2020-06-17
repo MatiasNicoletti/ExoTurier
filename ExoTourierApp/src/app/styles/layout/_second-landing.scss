@@ -5,19 +5,20 @@
 
 .container-second-landing{
     position: relative;
-    width: $app-width;
+    max-width: $app-width;
     height: 100vh;
-    top: -1vh;
+    top: -2vh;
     left: -0.5vw;
     font-family: $main-font;
     display: flex;
     flex-direction: row;
+    background-color: $color-earthy-red-opac;
+    justify-content: space-between;
     &__right{
-        position: relative;
-        width: 60%;
-        text-align: end;
+        margin-right: -0.8rem;
         & img{
             height: 100vh;
+            
         }
     }
     &__left{

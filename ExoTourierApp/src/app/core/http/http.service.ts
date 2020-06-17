@@ -52,8 +52,7 @@ public login(email:string, password:string): Observable<LoginDto>{
   let loginDto: LoginDto = new LoginDto(); 
   loginDto.email = email;
   loginDto.password = password;
-  console.log(loginDto);
-  return this.http.post<LoginDto>('http://localhost:8080/login/login',loginDto , { headers: this.httpHeaders });
+  return this.http.post<LoginDto>('http://localhost:8080/login/',loginDto , { headers: this.httpHeaders });
 }
 
 public getExcursionById(id:number): Observable<Excursion>{

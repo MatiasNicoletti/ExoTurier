@@ -3,6 +3,8 @@ import { HttpService } from 'src/app/core/http/http.service';
 import { LoginPopupComponent } from '../login-popup/login-popup.component';
 import { UtilsServiceService } from 'src/app/utils-service.service';
 import { Subject } from 'rxjs';
+import { UserService } from 'src/app/core/services/user.service';
+import { User } from 'src/app/core/models/User';
 
 
 @Component({
@@ -11,12 +13,14 @@ import { Subject } from 'rxjs';
   styleUrls: ['../../styles/layout/_navigation.scss']
 })
 export class NavComponent implements OnInit {
+  user: User;
 
-
-  constructor(private httpService: HttpService, private service: UtilsServiceService)  { }
+  constructor(private httpService: HttpService, private service: UtilsServiceService, private userService: UserService)  { }
   
   ngOnInit(): void {
-    
+    this.service.userLogged.subscribe(res => {
+      this.user = res as User;
+    })
   }
 
   getUsers(){

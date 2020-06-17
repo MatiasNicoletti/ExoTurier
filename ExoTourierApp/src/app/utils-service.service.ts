@@ -6,5 +6,6 @@ import { Subject } from 'rxjs';
 })
 export class UtilsServiceService {
   public buttonClickEventTrack = new Subject();
+  public userLogged = new Subject();
   constructor() { }
 }
