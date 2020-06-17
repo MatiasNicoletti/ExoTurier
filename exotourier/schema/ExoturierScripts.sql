@@ -26,6 +26,8 @@ CREATE TABLE `excursions` (
     `place` VARCHAR(255),
     `id_city` INT NOT NULL,
     `is_active` BOOLEAN DEFAULT TRUE NOT NULL,
+    `grid_class` VARCHAR(45) NOT NULL,
+    `image_path` VARCHAR(255) NOT NULL,
     CONSTRAINT `Pk_excursion` PRIMARY KEY (`id`),
     CONSTRAINT `Fk_excursions_city` FOREIGN KEY(`id_city`) REFERENCES `cities`(`id`)
 );
@@ -76,3 +78,11 @@ of this top country', 35000, 'Burkina Fasso', 1, true);
 
 insert into purchases(purchase_date, total_price, id_excursion, id_user) values(NOW(), 37000, 1, 1);
 insert into users_x_excursions(id_user, id_excursion, rating) values(1, 1, 5);
+
+insert into excursions(excursion_name, description, price, place, id_city, is_active, grid_class, image_path) values('A voyage to the center of Burkina Fasso', 'this is a description this is a description this is a description this is a description', 32000, 'Burkina Fasso', 1, true, 'start-to-middle', 'elephant.jpg');
+insert into excursions(excursion_name, description, price, place, id_city, is_active, grid_class, image_path) values('Mayans Secrets', 'this is a description this is a description this is a description this is a description', 17500, 'Chichen Itza', 1, true, 'one-tile', 'chichen.jpg');
+insert into excursions(excursion_name, description, price, place, id_city, is_active, grid_class, image_path) values('Mayans Secrets', 'this is a description this is a description this is a description this is a description', 17500, 'Chichen Itza', 1, true, 'one-tile', 'chichen.jpg');
+insert into excursions(excursion_name, description, price, place, id_city, is_active, grid_class, image_path) values('Mayans Secrets', 'this is a description this is a description this is a description this is a description', 17500, 'Chichen Itza', 1, true, 'middle-to-end', 'chichen.jpg');
+insert into excursions(excursion_name, description, price, place, id_city, is_active, grid_class, image_path) values('Mayans Secrets', 'this is a description this is a description this is a description this is a description', 17500, 'Chichen Itza', 1, true, 'one-tile', 'chichen.jpg');
+insert into excursions(excursion_name, description, price, place, id_city, is_active, grid_class, image_path) values('Mayans Secrets', 'this is a description this is a description this is a description this is a description', 17500, 'Chichen Itza', 1, true, 'one-tile', 'chichen.jpg');
+insert into excursions(excursion_name, description, price, place, id_city, is_active, grid_class, image_path) values('Mayans Secrets', 'this is a description this is a description this is a description this is a description', 17500, 'Chichen Itza', 1, true, 'one-tile', 'chichen.jpg');
