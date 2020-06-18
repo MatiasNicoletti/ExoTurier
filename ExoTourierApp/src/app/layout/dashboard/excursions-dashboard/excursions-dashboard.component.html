@@ -7,36 +7,13 @@
     <h4>Excursions</h4>
 
     <div class="excursions-container">
-      <div class="excursions-container__item">
-        <h3>Excursion #1</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus amet deleniti consequatur, quas ullam
-          modi non error quae aliquid nobis.</p>
+
+      <div *ngFor="let excursion of excursions" class="excursions-container__item">
+        <h3>{{ excursion.name }}</h3>
+        <p>{{ excursion.description }}</p>
         <a href="">More Details</a>
       </div>
-      <div class="excursions-container__item">
-        <h3>Excursion #1</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus amet deleniti consequatur, quas ullam
-          modi non error quae aliquid nobis.</p>
-        <a href="">More Details</a>
-      </div>
-      <div class="excursions-container__item">
-        <h3>Excursion #1</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus amet deleniti consequatur, quas ullam
-          modi non error quae aliquid nobis.</p>
-        <a href="">More Details</a>
-      </div>
-      <div class="excursions-container__item">
-        <h3>Excursion #1</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus amet deleniti consequatur, quas ullam
-          modi non error quae aliquid nobis.</p>
-        <a href="">More Details</a>
-      </div>
-      <div class="excursions-container__item">
-        <h3>Excursion #1</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus amet deleniti consequatur, quas ullam
-          modi non error quae aliquid nobis.</p>
-        <a href="">More Details</a>
-      </div>
+
     </div>
 
   </div>
