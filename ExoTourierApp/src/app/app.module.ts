@@ -28,6 +28,7 @@ import { NavDashboardComponent } from './layout/dashboard/nav-dashboard/nav-dash
 import { LoginPopupComponent } from './layout/login-popup/login-popup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SecondLandingComponent } from './layout/second-landing/second-landing.component';
+import { SignInComponent } from './layout/sign-in/sign-in.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +52,7 @@ import { SecondLandingComponent } from './layout/second-landing/second-landing.c
     NavDashboardComponent,
     LoginPopupComponent,
     SecondLandingComponent,
+    SignInComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule, ReactiveFormsModule], 
   providers: [UserService, HttpService],

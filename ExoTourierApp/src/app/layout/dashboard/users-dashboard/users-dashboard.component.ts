@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/core/models/User';
 
 @Component({
   selector: 'app-users-dashboard',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../../../styles/layout/dashboard/_users.scss'],
 })
 export class UsersDashboardComponent implements OnInit {
-  constructor() {}
+  users: User[];
 
   ngOnInit(): void {}
 }

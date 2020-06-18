@@ -1,5 +1,5 @@
 <div class="popup-container" *ngIf="visible">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" #form>
     <div class="inputs">
       <input type="text" formControlName="email" placeholder="Email..." class="input input-md" />
       <input type="password" formControlName="password" placeholder="Password..." class="input input-md" />
@@ -7,7 +7,7 @@
     <div class="buttons">
       <button type="submit" class="btn btn-action btn-medium" >login</button>
       <span>or</span>
-      <button class="btn btn-action btn-medium">sign in</button>
+      <button type="button" routerLinkActive="active" routerLink="/signIn" class="btn btn-action btn-medium" (click)="onSignIn()">sign in</button>
     </div>
   </form>
 </div>

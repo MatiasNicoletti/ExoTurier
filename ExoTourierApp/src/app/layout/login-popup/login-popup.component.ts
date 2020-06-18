@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, EventEmitter, Output, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UtilsServiceService } from 'src/app/utils-service.service';
-import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormArray, Validators, NgForm } from '@angular/forms';
 import { UserService } from 'src/app/core/services/user.service';
 import { User } from 'src/app/core/models/User';
 
@@ -19,7 +19,7 @@ export class LoginPopupComponent implements OnInit{
   ngOnInit(): void {
     this.service.buttonClickEventTrack.subscribe(res=>{
       console.log(res);
-      this.showPopup();
+        this.showPopup();
     });
     this.initForm();
   }
@@ -30,14 +30,17 @@ export class LoginPopupComponent implements OnInit{
 
   onSubmit(){
     //this.loginForm.controls['email'].valuethis.loginForm.controls['password'].value
-   
- 
     this.userService.login('attila@gmail.com','123456').subscribe(res =>{
      this.service.userLogged.next(res);
      localStorage.setItem('loggedUser',JSON.stringify(res));
     });
     this.showPopup();
     
+  }
+  onSignIn(){
+    this.service.buttonClickEventTrack.next(false);
+    this.router.navigate(['signIn']);
+
   }
 
   private initForm(){

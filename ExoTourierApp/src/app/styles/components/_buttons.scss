@@ -20,9 +20,13 @@
     text-transform: uppercase;
     @include box-shadow;
     margin: 0 $margin-md;
-
+    transition: all .2s ease;
 }
 
+.btn-action:hover{
+    transition: all .2s ease;
+    background-color: $color-earthy-red-darken;
+}
 
 .btn-small{
     width: 5rem;

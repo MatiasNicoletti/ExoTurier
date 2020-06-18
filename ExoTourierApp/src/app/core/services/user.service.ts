@@ -26,7 +26,7 @@ export class UserService {
 
     return this.httpService.login(email, password);
   }
-
+  
   public getLoggedUser() {
     return this.userLogged;
   }

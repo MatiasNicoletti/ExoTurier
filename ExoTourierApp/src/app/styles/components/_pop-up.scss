@@ -14,6 +14,7 @@
     border-radius: $border-radius-15;
     z-index: 100;    
     @include box-shadow;
+    transition: all .2s ease;
 }
 
 .inputs{

@@ -38,6 +38,7 @@ export class NavComponent implements OnInit{
   }
 
   showPopUp() {
+  
     this.service.buttonClickEventTrack.next(false);
   }
 
