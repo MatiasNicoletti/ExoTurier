@@ -5,21 +5,18 @@ import { User } from '../models/User';
 import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   users: [] = [];
   userLogged: User;
-  constructor(private httpService: HttpService) {
-
-  }
+  constructor(private httpService: HttpService) {}
 
   public setUsers(users) {
     this.users = users;
   }
 
   public login(email: string, password: string) {
-
     /*this.httpService.login(email, password).subscribe((res:User) =>{
       this.userLogged = res;
     }, (error: HttpErrorResponse) => {
@@ -30,10 +27,13 @@ export class UserService {
     return this.httpService.login(email, password);
   }
 
-  public getLoggedUser(){
+  public getLoggedUser() {
     return this.userLogged;
   }
-  public setLoggedUser(user: User){
-     this.userLogged = user;
+  public setLoggedUser(user: User) {
+    this.userLogged = user;
+  }
+  public findAll() {
+    return this.httpService.fetchUsers();
   }
 }

@@ -13,42 +13,18 @@
           <th>#</th>
           <th>Name</th>
           <th>Surname</th>
+          <th>Email</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Rodrigo</td>
-          <td>Leon</td>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.firstname }}</td>
+          <td>{{ user.surname }}</td>
+          <td>{{ user.email }}</td>
           <td>
             <a href="#" class="btn-primary">
-              <i class="fa fa-trash-alt"></i>
-            </a>
-            <a href="#" class="btn-secundary">
-              <i class="fa fa-wrench"></i>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Rodrigo</td>
-          <td>Leon</td>
-          <td>
-            <a href="#" cass="btn-primary">
-              <i class="fa fa-trash-alt"></i>
-            </a>
-            <a href="#" class="btn-secundary">
-              <i class="fa fa-wrench"></i>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Rodrigo</td>
-          <td>Leon</td>
-          <td>
-            <a href="#" cass="btn-primary">
               <i class="fa fa-trash-alt"></i>
             </a>
             <a href="#" class="btn-secundary">
