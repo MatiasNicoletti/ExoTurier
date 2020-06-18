@@ -30,10 +30,14 @@ export class LoginPopupComponent implements OnInit{
 
   onSubmit(){
     //this.loginForm.controls['email'].valuethis.loginForm.controls['password'].value
+   
+ 
     this.userService.login('attila@gmail.com','123456').subscribe(res =>{
-      this.service.userLogged.next(res);
+     this.service.userLogged.next(res);
+     localStorage.setItem('loggedUser',JSON.stringify(res));
     });
     this.showPopup();
+    
   }
 
   private initForm(){

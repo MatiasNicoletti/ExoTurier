@@ -33,4 +33,7 @@ export class UserService {
   public getLoggedUser(){
     return this.userLogged;
   }
+  public setLoggedUser(user: User){
+     this.userLogged = user;
+  }
 }

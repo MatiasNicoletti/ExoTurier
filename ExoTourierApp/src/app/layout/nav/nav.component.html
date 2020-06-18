@@ -35,8 +35,13 @@
       </li>
       <li routerLinkActive="active" class="nav-container__nav-bar__list__item">
         
-        <div *ngIf="user;then content; else nocontent">here is ignored</div>
-        <ng-template #content><a class="a-link nav-container__nav-bar__list__item-link">{{ user.firstname }}</a>
+        <div *ngIf="user;then content; else nocontent"></div>
+        <ng-template #content>
+          <a class="a-link nav-container__nav-bar__list__item-link" id="userName">{{ user.firstname }}</a>
+          <div class="nav-container__nav-bar__list-logout" id="div-logout">
+            <button class="btn btn-action btn-small" (click)="onClicked()">logout</button>
+          </div>
+           
         </ng-template>
         <ng-template #nocontent><a class="a-link nav-container__nav-bar__list__item-link"
             (click)="showPopUp()">LOGIN</a></ng-template>

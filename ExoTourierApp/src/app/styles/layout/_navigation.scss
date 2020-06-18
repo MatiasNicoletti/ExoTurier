@@ -60,7 +60,20 @@
           margin-left: 0;
           cursor: pointer;
         }
+        
+      }
+      &-logout{
+        position: absolute;
+        top: -0.5rem;
+        right: 0rem;
+        transition: all .2s;
+        display: none;
       }
     }
   }
+}
+
+#userName:hover + div{
+  display: block;
+  transition: all .2s;
 }
