@@ -43,8 +43,8 @@ public class ExcursionService {
                                     .place(newExcursionDto.getPlace())
                                     .city(city)
                                     .gridClass("test")
-                                    .imagePathMain("test")
-                                    .imagePathSecondary("test")
+                                    .imagePathMain(newExcursionDto.getImagePathMain())
+                                    .imagePathSecondary(newExcursionDto.getImagePathSecondary())
                                     .isActive(true)
                                     .build();
 

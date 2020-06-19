@@ -18,5 +18,7 @@ public class ExcursionDto implements Serializable {
     private Float price;
     private String place;
     private String city;
+    private String imagePathMain;
+    private String imagePathSecondary;
 
 }

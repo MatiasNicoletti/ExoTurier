@@ -47,6 +47,22 @@
           <input type="text" [(ngModel)]="excursion.city" name="city" id="city" required #city="ngModel">
         </div>
 
+        <div>
+          <label for="imagePathMain">
+            <i class="fa fa-angle-right"></i>
+            Image Path Main
+          </label>
+          <input type="text" [(ngModel)]="excursion.imagePathMain" name="imagePathMain" id="imagePathMain" required
+            #imagePathMain="ngModel">
+        </div>
+        <div>
+          <label for="imagePathSecondary">
+            <i class="fa fa-angle-right"></i>
+            Image Path Secondary
+          </label>
+          <input type="text" [(ngModel)]="excursion.imagePathSecondary" name="imagePathSecondary"
+            id="imagePathSecondary" required #imagePathSecondary="ngModel">
+        </div>
         <div class="container__form-btn">
           <input type="submit" value="Register">
         </div>
