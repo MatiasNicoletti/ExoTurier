@@ -43,7 +43,7 @@ public class UserController {
     @PostMapping(value = "/")
     public ResponseEntity<User> create(@RequestBody User user) throws UserEmailAlreadyExistException {
         User newUser = userService.create(user);
-        
+
         return ResponseEntity.ok().body(newUser);
     }
 

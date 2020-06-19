@@ -21,7 +21,7 @@ export class GridComponent implements OnInit {
   fetchExcursions(){
     this.httpService.fetchExcursions().subscribe(excursionsResponse => {
       this.excursions = excursionsResponse as Excursion[];
-      //console.log(this.excursions);
+     console.log(this.excursions);
     });
   }
 
