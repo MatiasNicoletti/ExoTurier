@@ -63,6 +63,14 @@
           <input type="text" [(ngModel)]="excursion.imagePathSecondary" name="imagePathSecondary"
             id="imagePathSecondary" required #imagePathSecondary="ngModel">
         </div>
+        <div>
+          <label for="gridClass">
+            <i class="fa fa-angle-right"></i>
+            Grid Class
+          </label>
+          <input type="text" [(ngModel)]="excursion.gridClass" name="gridClass" id="gridClass" required
+            #gridClass="ngModel">
+        </div>
         <div class="container__form-btn">
           <input type="submit" value="Register">
         </div>

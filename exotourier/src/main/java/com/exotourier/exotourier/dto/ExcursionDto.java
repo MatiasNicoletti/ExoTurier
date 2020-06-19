@@ -20,5 +20,6 @@ public class ExcursionDto implements Serializable {
     private String city;
     private String imagePathMain;
     private String imagePathSecondary;
+    private String gridClass;
 
 }
