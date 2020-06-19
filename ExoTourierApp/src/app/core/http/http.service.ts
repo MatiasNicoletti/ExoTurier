@@ -7,6 +7,7 @@ import { User } from '../models/User';
 import { strict } from 'assert';
 import { Excursion } from '../models/Excursion';
 import { LoginDto } from '../models/LoginDto';
+import { City } from '../models/City';
 @Injectable({
   providedIn: 'root',
 })
@@ -53,6 +54,10 @@ export class HttpService {
       'http://localhost:8080/excursions/',
       excursion
     );
+  }
+
+  public fetchCities(): Observable<City[]> {
+    return this.http.get<City[]>('http://localhost:8080/cities/').pipe();
   }
 
   public login(email: string, password: string): Observable<LoginDto> {

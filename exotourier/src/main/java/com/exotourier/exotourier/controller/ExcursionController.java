@@ -1,6 +1,8 @@
 package com.exotourier.exotourier.controller;
 
 import com.exotourier.exotourier.domain.Excursion;
+import com.exotourier.exotourier.dto.ExcursionDto;
+import com.exotourier.exotourier.exception.city.CityNotExistException;
 import com.exotourier.exotourier.exception.excursion.ExcursionAlreadyExistException;
 import com.exotourier.exotourier.exception.excursion.ExcursionNotExistException;
 import com.exotourier.exotourier.service.ExcursionService;
@@ -31,7 +33,7 @@ public class ExcursionController {
     }
 
     @PostMapping("/")
-    public ResponseEntity create(@RequestBody @Valid final Excursion excursion) throws ExcursionAlreadyExistException {
+    public ResponseEntity create(@RequestBody @Valid final ExcursionDto excursion) throws ExcursionAlreadyExistException, CityNotExistException {
         Excursion newExcursion = excursionService.add(excursion);
         return ResponseEntity.created(getLocation(newExcursion)).build();
     }

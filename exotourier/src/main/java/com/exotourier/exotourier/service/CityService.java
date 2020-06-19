@@ -36,5 +36,4 @@ public class CityService {
         return cityDao.findById(id).orElseThrow(CityNotExistException::new);
     }
 
-
 }
