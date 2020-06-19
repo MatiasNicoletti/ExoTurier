@@ -65,8 +65,14 @@ export class HttpService {
     loginDto.email = email;
     loginDto.password = password;
     return this.http.post<LoginDto>('http://localhost:8080/login/', loginDto, {
-      headers: this.httpHeaders,
+      headers: this.httpHeaders
     });
+  }
+
+  public signin(user:User){
+    return this.http.post<User>('http://localhost:8080/users/', user, {
+      headers: this.httpHeaders
+    }); 
   }
 
   public getExcursionById(id: number): Observable<Excursion> {

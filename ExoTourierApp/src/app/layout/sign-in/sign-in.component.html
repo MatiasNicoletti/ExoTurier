@@ -8,28 +8,27 @@
   </div>
   <div class="signin-container__right">
     <h2 class="main-title">Sign In</h2>
+    <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
     <div class="signin-container__right__inputs">
       <div class="input-label">
         <label for="firstname">Firstname</label>
-        <input class="input input-md" type="text" name="firstname" />
+        <input formControlName="firstname" class="input input-md" type="text" name="firstname" />
       </div>
       <div class="input-label">
-        <label for="firstname">Firstname</label>
-        <input class="input input-md" type="text" name="firstname" />
+        <label for="firstname">Surname</label>
+        <input formControlName="surname" class="input input-md" type="text" name="firstname" />
+      </div> 
+      <div class="input-label">
+        <label for="firstname">Email</label>
+        <input formControlName="email" class="input input-md" type="text" name="firstname" />
       </div>
       <div class="input-label">
-        <label for="firstname">Firstname</label>
-        <input class="input input-md" type="text" name="firstname" />
+        <label for="firstname">Password</label>
+        <input formControlName="password" class="input input-md" type="password" name="firstname" />
       </div>
-      <div class="input-label">
-        <label for="firstname">Firstname</label>
-        <input class="input input-md" type="text" name="firstname" />
-      </div>
-      <div class="input-label">
-        <label for="firstname">Firstname</label>
-        <input class="input input-md" type="text" name="firstname" />
-      </div>
+    
     </div>
     <button class="btn btn-action btn-medium">finish</button> 
+  </form>
   </div>
 </div>

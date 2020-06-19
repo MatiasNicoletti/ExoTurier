@@ -9,6 +9,7 @@ import com.exotourier.exotourier.exception.user.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +29,7 @@ public class UserService {
         if (u.isPresent()) {
             throw new UserEmailAlreadyExistException();
         }
+        System.out.println(user);
         return this.userDao.save(user);
     }
 

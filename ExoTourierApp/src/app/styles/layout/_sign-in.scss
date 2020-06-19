@@ -28,6 +28,15 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        & form{
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        }
         &__inputs{
             width: 100%;
             flex-direction: column;

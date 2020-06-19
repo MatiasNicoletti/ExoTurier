@@ -26,7 +26,10 @@ export class UserService {
 
     return this.httpService.login(email, password);
   }
-  
+  public signin(user:User){
+    
+    return this.httpService.signin(user);
+  }
   public getLoggedUser() {
     return this.userLogged;
   }
