@@ -11,7 +11,7 @@ import { User } from 'src/app/core/models/User';
   styleUrls: ['../../styles/components/_pop-up.scss']
 }) 
 export class LoginPopupComponent implements OnInit{
-  visible: boolean = false;
+  visible: boolean = true;
   loginForm: FormGroup;
 
   constructor(private service: UtilsServiceService, private userService: UserService,private route: ActivatedRoute,private router: Router) { }
