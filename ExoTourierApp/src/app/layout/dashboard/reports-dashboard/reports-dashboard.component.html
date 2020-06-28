@@ -18,22 +18,22 @@
             <li>
               <span>- Total excursions&nbsp; </span>
               <i class="fa fa-arrow-right"></i>
-              <span>&nbsp;50</span>
+              <span>&nbsp; {{ countExcursions }} </span>
             </li>
             <li>
               <span>- Total sales&nbsp; </span>
               <i class="fa fa-arrow-right"></i>
-              <span>&nbsp;300</span>
+              <span>&nbsp; {{ countPurchases }} </span>
             </li>
             <li>
               <span>- Total amount&nbsp; </span>
               <i class="fa fa-arrow-right"></i>
-              <span>&nbsp;$10000</span>
+              <span>&nbsp; ${{ totalAmount }} </span>
             </li>
             <li>
               <span>- Best selling excursion&nbsp; </span>
               <i class="fa fa-arrow-right"></i>
-              <span>&nbsp;Pepe y las pepas</span>
+              <span>&nbsp; {{ mostPurchased.name }} </span>
             </li>
           </ul>
         </div>
@@ -50,7 +50,7 @@
             <li>
               <span>- Total users&nbsp; </span>
               <i class="fa fa-arrow-right"></i>
-              <span>&nbsp;50</span>
+              <span>&nbsp; {{ countUsers }} </span>
             </li>
           </ul>
         </div>

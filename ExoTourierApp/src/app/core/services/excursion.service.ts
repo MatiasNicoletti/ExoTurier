@@ -23,4 +23,9 @@ export class ExcursionService {
   public create(excursion: Excursion) {
     return this.httpService.saveExcursion(excursion);
   }
+
+  public mostPurchased() {
+    return this.httpService.mostPurchased();
+  }
+
 }

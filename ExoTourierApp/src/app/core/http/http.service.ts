@@ -8,10 +8,12 @@ import { strict } from 'assert';
 import { Excursion } from '../models/Excursion';
 import { LoginDto } from '../models/LoginDto';
 import { City } from '../models/City';
+import { Purchase } from '../models/Purchase';
 @Injectable({
   providedIn: 'root',
 })
 export class HttpService {
+  
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
   constructor(private http: HttpClient) {}
 
@@ -80,4 +82,17 @@ export class HttpService {
       .get<Excursion>('http://localhost:8080/excursions/' + id)
       .pipe();
   }
+
+  public mostPurchased() {
+    return this.http
+      .get<Excursion>('http://localhost:8080/purchases/mostPurchased')
+      .pipe();
+  }
+
+  public fetchPurchases() {
+    return this.http
+      .get<Purchase>('http://localhost:8080/purchases/')
+      .pipe();
+  }
+
 }
