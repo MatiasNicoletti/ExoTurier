@@ -33,6 +33,13 @@ export class SignInComponent implements OnInit {
 
   onSubmit(){ 
     let user: User = new User();
+
+    if (this.signinForm.invalid) {
+      Object.keys(this.signinForm.controls).forEach(key => {
+        this.signinForm.get(key).markAsDirty();
+      });
+      return;
+    }
     user.firstname = this.signinForm.controls['firstname'].value;
     user.surname = this.signinForm.controls['surname'].value;
     user.email = this.signinForm.controls['email'].value;

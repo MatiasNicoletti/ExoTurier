@@ -11,8 +11,9 @@ import { User } from 'src/app/core/models/User';
   styleUrls: ['../../styles/components/_pop-up.scss']
 }) 
 export class LoginPopupComponent implements OnInit{
-  visible: boolean = true;
-  loginForm: FormGroup;
+  @ViewChild('f', { static: false }) loginForm: NgForm;
+  visible: boolean = false;
+  correct: boolean = true;
 
   constructor(private service: UtilsServiceService, private userService: UserService,private route: ActivatedRoute,private router: Router) { }
   
@@ -21,7 +22,7 @@ export class LoginPopupComponent implements OnInit{
       console.log(res);
         this.showPopup();
     });
-    this.initForm();
+   // this.initForm();
   }
 
   public showPopup(){
@@ -29,13 +30,21 @@ export class LoginPopupComponent implements OnInit{
   }
 
   onSubmit(){
+    
+    if(this.loginForm.value.email !== "" && this.loginForm.value.pass !== ""){
+      console.log('submitting');
+    }else{
+      this.correct = false;
+    }
+    
+    
     //this.loginForm.controls['email'].valuethis.loginForm.controls['password'].value
-    this.userService.login('attila@gmail.com','123456').subscribe(res =>{
+    /*this.userService.login('attila@gmail.com','123456').subscribe(res =>{
      this.service.userLogged.next(res);
      localStorage.setItem('loggedUser',JSON.stringify(res));
     });
     this.showPopup();
-    
+    */
   }
   onSignIn(){
     this.service.buttonClickEventTrack.next(false);
@@ -43,7 +52,7 @@ export class LoginPopupComponent implements OnInit{
 
   }
 
-  private initForm(){
+ /* private initForm(){
     let userEmail = '';
     let userPassword = '';
 
@@ -51,5 +60,5 @@ export class LoginPopupComponent implements OnInit{
       email: new FormControl(userEmail, Validators.required),
       password: new FormControl(userPassword, Validators.required)
     });
-  }
+  }*/
 }

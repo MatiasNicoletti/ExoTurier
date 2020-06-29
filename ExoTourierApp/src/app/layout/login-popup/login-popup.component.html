@@ -1,13 +1,15 @@
 <div class="popup-container" *ngIf="visible">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" #form>
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
     <div class="inputs">
-      <input type="text" formControlName="email" placeholder="Email..." class="input input-md" />
-      <input type="password" formControlName="password" placeholder="Password..." class="input input-md" />
+      <input type="text" placeholder="Email..." name="email" #email="ngModel" ngModel class="input input-md" required/>
+      
+      <input type="password" placeholder="Password..." #pass="ngModel" name="password" required ngModel class="input input-md" />
     </div>
     <div class="buttons">
-      <button type="submit" class="btn btn-action btn-medium" >login</button>
+      <button type="submit" class="btn btn-action btn-medium"  [disabled]="!f.valid">login</button>
       <span>or</span>
-      <button type="button" routerLinkActive="active" routerLink="/signIn" class="btn btn-action btn-medium" (click)="onSignIn()">sign in</button>
+      <button type="button" routerLinkActive="active" routerLink="/signIn" class="btn btn-action btn-medium" (click)="onSignIn()">sign in</button> 
     </div>
+    <span *ngIf="!correct">Either the fields are empty or wrong</span>
   </form>
 </div>

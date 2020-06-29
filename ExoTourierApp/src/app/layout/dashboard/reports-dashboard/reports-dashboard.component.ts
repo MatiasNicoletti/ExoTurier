@@ -33,15 +33,15 @@ export class ReportsDashboardComponent implements OnInit {
     });
 
     this.excursionService.mostPurchased().subscribe((data) => {            
-      this.mostPurchased = data.body;
+      //this.mostPurchased = data.body;
     }); 
 
     this.purchaseService.findAll().subscribe((data) => {                        
-      this.purchases = data;
-      this.countPurchases = data.length;      
+     // this.purchases = data;
+    //  this.countPurchases = data.length;      
 
       for(let i = 0; i < this.purchases.length; i++) {
-        this.totalAmount += this.purchases[i].totalPrice;
+      //  this.totalAmount += this.purchases[i].totalPrice;
       }
     });
 
