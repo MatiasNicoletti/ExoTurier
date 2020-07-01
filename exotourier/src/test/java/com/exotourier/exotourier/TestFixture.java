@@ -1,7 +1,6 @@
 package com.exotourier.exotourier;
 
-import com.exotourier.exotourier.domain.City;
-import com.exotourier.exotourier.domain.Country;
+import com.exotourier.exotourier.domain.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,4 +60,81 @@ public class TestFixture {
                 .build();
         return newCity;
     }
+
+
+    public static List<User> testListOfUsers() {
+        List<User> users = new ArrayList<>();
+        User newUser1= User.builder()
+                .id(1)
+                .firstname("juan")
+                .surname("del Monte")
+                .email("juancito@gmail.com")
+                .password("1234")
+                .isActive(true)
+                .purchases(new ArrayList<>())
+                .userExcursionList(new ArrayList<>())
+                .build();
+
+        User newUser2 = User.builder()
+                .id(1)
+                .firstname("Cuchi")
+                .surname("Leguizamon")
+                .email("cuchi@gmail.com")
+                .password("1234")
+                .isActive(true)
+                .purchases(new ArrayList<>())
+                .userExcursionList(new ArrayList<>())
+                .build();
+
+        users.add(newUser1);
+        users.add(newUser2);
+
+        return users;
     }
+
+    public static User testUser() {
+        User newUser = User.builder()
+                .id(1)
+                .firstname("juan")
+                .surname("del Monte")
+                .email("juancito@gmail.com")
+                .password("1234")
+                .isActive(true)
+                .purchases(new ArrayList<>())
+                .userExcursionList(new ArrayList<>())
+                .build();
+        return newUser;
+    }
+
+    public static List<UserExcursion> testListOfUsersExcursions() {
+        List<UserExcursion> userExcursions = new ArrayList<>();
+        UserExcursion userExcursion= UserExcursion.builder()
+                .id(1)
+                .user(testUser())
+                .excursion(new Excursion())
+                .rating((float) 7.56)
+                .build();
+
+        UserExcursion userExcursion2 = UserExcursion.builder()
+                .id(1)
+                .user(testUser())
+                .excursion(new Excursion())
+                .rating((float) 7.56)
+                .build();;
+
+        userExcursions.add(userExcursion);
+        userExcursions.add(userExcursion2);
+
+        return userExcursions;
+    }
+
+    public static UserExcursion testUserExcursion() {
+        UserExcursion newUserExcursion = UserExcursion.builder()
+                .id(1)
+                .user(testUser())
+                .excursion(new Excursion())
+                .rating((float) 7.56)
+                .build();
+        return newUserExcursion;
+    }
+}
