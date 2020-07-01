@@ -9,6 +9,7 @@ import { Excursion } from '../models/Excursion';
 import { LoginDto } from '../models/LoginDto';
 import { City } from '../models/City';
 import { Purchase } from '../models/Purchase';
+import { PurchaseDate } from '../models/PurchaseDate';
 @Injectable({
   providedIn: 'root',
 })
@@ -93,6 +94,12 @@ export class HttpService {
     return this.http
       .get<Purchase>('http://localhost:8080/purchases/')
       .pipe();
+  }
+  
+  public daysPurchases() {
+    const from = new Date();
+    const to = new Date();
+    return this.http.get<PurchaseDate>(`http://localhost:8080/purchases/dates?from=${from}&?to=${to}`).pipe();
   }
 
 }

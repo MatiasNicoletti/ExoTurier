@@ -7,9 +7,11 @@ import com.exotourier.exotourier.domain.User;
 import com.exotourier.exotourier.exception.PurchaseNotExistException;
 import com.exotourier.exotourier.exception.user.UserNotExistException;
 import com.exotourier.exotourier.projection.MostPurchased;
+import com.exotourier.exotourier.projection.PurchaseDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,4 +47,7 @@ public class PurchaseService {
         return purchaseDao.getUserExcursions(userId).orElseThrow(PurchaseNotExistException::new);
     }
 
+    public List<PurchaseDate> getAllBetweenDates(Date from, Date to) {
+        return purchaseDao.getAllBetweenDates(from, to);
+    }
 }

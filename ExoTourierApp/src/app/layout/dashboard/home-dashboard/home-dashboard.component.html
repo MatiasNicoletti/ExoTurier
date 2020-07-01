@@ -18,11 +18,11 @@
       </div>
       <div class="content-container__resume-item-content">
         <div>
-          1000
+          {{ countExcursions }}
         </div>
       </div>
       <div class="content-container__resume-item-cta">
-        <a href="">New excursion</a>
+        <a routerLink="/dashboard/excursion">New Excursion</a>        
       </div>
     </div>
 
@@ -34,11 +34,11 @@
       </div>
       <div class="content-container__resume-item-content">
         <div>
-          ...........
+          {{ mostPurchased.name }}
         </div>
       </div>
-      <div class="content-container__resume-item-cta secundary">
-        <a href="">View all excursions</a>
+      <div class="content-container__resume-item-cta secundary">        
+        <a routerLink="/dashboard/excursions">View all excursions</a>     
       </div>
     </div>
 
@@ -50,11 +50,11 @@
       </div>
       <div class="content-container__resume-item-content">
         <div>
-          1000
+          {{ countUsers }}
         </div>
       </div>
       <div class="content-container__resume-item-cta alternative">
-        <a href="">View all users</a>
+        <a routerLink="/dashboard/users">View all users</a>     
       </div>
     </div>
 
