@@ -15,4 +15,8 @@ export class PurchasesService {
     return this.httpService.fetchPurchases();
   }
 
+  public findAllBetweenDates() {
+    return this.httpService.daysPurchases();
+  }
+
 }

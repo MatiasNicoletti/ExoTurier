@@ -5,6 +5,7 @@ import com.exotourier.exotourier.domain.Purchase;
 import com.exotourier.exotourier.exception.excursion.ExcursionNotExistException;
 import com.exotourier.exotourier.exception.PurchaseNotExistException;
 import com.exotourier.exotourier.projection.MostPurchased;
+import com.exotourier.exotourier.projection.PurchaseDate;
 import com.exotourier.exotourier.service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin
@@ -54,6 +58,15 @@ public class PurchaseController {
         Integer id = mostPurchased.getId_excursion();
         ResponseEntity<Excursion> exc = excursionController.getById(id);
         return ResponseEntity.ok(exc);
+    }
+
+    @GetMapping("/dates")
+    public ResponseEntity<List<PurchaseDate>> getPurchasesBetweenDates(@RequestParam(name = "from") final String from,
+                                                                   @RequestParam(name = "to") final String to) throws ParseException {
+        Date fromDate = new SimpleDateFormat("dd/MM/yyyy").parse(from);
+        Date toDate = new SimpleDateFormat("dd/MM/yyyy").parse(to);
+        List<PurchaseDate> purchases = purchaseService.getAllBetweenDates(fromDate, toDate);
+        return (purchases.size() > 0) ? ResponseEntity.ok(purchases) : ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
     private URI getLocation(Purchase purchase) {
